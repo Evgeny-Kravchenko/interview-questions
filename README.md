@@ -101,7 +101,7 @@ The repository includes interview questions for a front-end developer
    
    The ```<script>``` tags block HTML rendering while they are being downloaded and executed. Downloading scripts at the end allows you to parse and show the user all the HTML first.
    
-9.  <a id="progressive-rendering">What is progressive rendering?</a>
+9.  <a id="html-progressive-rendering">What is progressive rendering?</a>
 
     Progressive rendering is the name given to techniques used to render content for display as quickly as possible.
     
