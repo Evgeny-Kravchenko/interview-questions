@@ -27,7 +27,7 @@ The repository includes interview questions for a front-end developer
 
    When an HTTP request is made to the server, the browser usually sends the preferred language information in the Accept-Language header. The server can use this information to return the version of the document in the appropriate language, if possible. In the returned HTML document, the `lang` attribute of the `<html>` tag must be specified, for example, `<html lang = "en">`.
 
-3. <a id="html-lang">What kind of things must you be wary of when designing or developing for multilingual sites?</a>
+3. <a id="html-multi-lang">What kind of things must you be wary of when designing or developing for multilingual sites?</a>
 
    - Redirect users to the site version in their language.
    - Limiting the length of words and sentences.
@@ -49,7 +49,7 @@ The repository includes interview questions for a front-end developer
    - Device access: allowing for the usage of various input and output devices.
    - Styling: letting authors write more sophisticated themes.
 
-6. <a id="html-html5">Describe the difference between a cookie, sessionStorage and localStorage?</a>
+6. <a id="html-csl">Describe the difference between a cookie, sessionStorage and localStorage?</a>
 
    ##### Local Storage
 
