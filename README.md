@@ -28,13 +28,23 @@ The repository includes interview questions for a front-end developer
 20. [Do all character entities display properly on all systems?](#html-character)
 21. [How do you change the number type in the middle of a list?](#html-change-number-list)
 22. [How do you create multicolored text in a webpage?](#html-multicolored)
-23. [What is the advantage of grouping several checkboxes together?](#html-checkboxed-group)
+23. [What is the advantage of grouping several checkboxes together?](#html-checkboxes-group)
 24. [What are applets?](#html-applets)
 25. [Is it possible to set specific colors for table borders?](#html-table-color)
 26. [What happens if the list-style-type property is used on a non-list element like a paragraph?](#html-non-list)
 27. [What are the new FORM elements which are available in HTML5?](#html-newtags-form)
 28. [Tell me two benefits of HTML5 Web Storage](#html-benefits-webstorage)
 29. [What is the Application Cache in HTML5 and why it is used?](#html-cache)
+
+### CSS
+
+1. [What is CSS?](#css-is)
+2. [Name all the modules which are used in the current version of CSS.](#css-modules)
+3. [Distinguish between CSS2 and CSS3.](#css-distinguish)
+4. [Cite different types of CSS.](#css-different-types)
+5. [Why is the external style sheet useful?](#css-useful-external)
+6. [Define CSS image scripts.](#css-image-scripts)
+
 
 ## Answers
 
@@ -223,7 +233,55 @@ The repository includes interview questions for a front-end developer
         - Speed – Cached resources load quicker.
         - Reduce the server load – The web browser will only download updated resources from the server.
         
+### CSS
 
+1. <a id="css-is">What is CSS?</a>
+
+    CSS outlines the style of an HTML webpage. It is a language by which we can set the behavior of an HTML webpage. It describes how the HTML content will be shown on screen.
+    
+2. <a id="css-modules">Name all the modules which are used in the current version of CSS.</a>
+
+    There are several modules in CSS as stated below:
+    
+        - Selectors
+        - Box model
+        - Background and borders
+        - Text effects
+        - 2D/3D transformations
+        - Animations
+        - Multiple Column layout
+        - User interface
+        
+3. <a id="css-distinguish"> Distinguish between CSS2 and CSS3.</a>
+        
+    The differences between CSS2 and CSS3 are as follows:
+    
+        - CSS3 is divided into two various sections which are called a module. Whereas in CSS2 everything accedes into a single document with all the information in it.
+        - CSS3 modules are supported almost on every browser and on the other hand modules of CSS and CSS2 are not supported in every browser.
+        - In CSS3, we will find that many graphics related characteristics have been introduced like Border-radius or box-shadow, flexbox.
+        - In CSS3, a user can precise multiple background images on a webpage by using properties like background-image, background-position, and background-repeat styles.
+        
+4. <a id="css-defferent-types">Cite different types of CSS.</a>
+
+    There are three types of CSS as mentioned below:
+    
+        - External: These are written in separate files.
+        - Internal: These are cited at the top of the web page code document.
+        - Inline: These are written right next to the text.
+        
+5. <a id="css-useful-external">Why is the external style sheet useful?</a>
+
+    External style sheet is very useful as we write all the styling codes in a single file and it can be used anywhere by just referring to the link of that external style sheet file.
+    
+6. <a id="image-scripts">Define CSS image scripts.</a>
+
+    CSS image scripts are a group of images that are placed into one image. It reduces the load time and request number to the server while projecting multiple images into a single web page.
+    
+
+    
+    
+
+    
         
 
 
