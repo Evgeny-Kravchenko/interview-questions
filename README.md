@@ -29,6 +29,12 @@ The repository includes interview questions for a front-end developer
 21. [How do you change the number type in the middle of a list?](#html-change-number-list)
 22. [How do you create multicolored text in a webpage?](#html-multicolored)
 23. [What is the advantage of grouping several checkboxes together?](#html-checkboxed-group)
+24. [What are applets?](#html-applets)
+25. [Is it possible to set specific colors for table borders?](#html-table-color)
+26. [What happens if the list-style-type property is used on a non-list element like a paragraph?](#html-non-list)
+27. [What are the new FORM elements which are available in HTML5?](#html-newtags-form)
+28. [Tell me two benefits of HTML5 Web Storage](#html-benefits-webstorage)
+29. [What is the Application Cache in HTML5 and why it is used?](#html-cache)
 
 ## Answers
 
@@ -176,5 +182,50 @@ The repository includes interview questions for a front-end developer
 23. <a id="html-checkboxes-group">What is the advantage of grouping several checkboxes together?</a>
 
     Although checkboxes don’t affect one another, grouping checkboxes together help to organize them. Checkbox buttons can have their name and do not need to belong to a group. A single web page can have many different groups of checkboxes.
+    
+24. <a id="html-applets">What are applets?</a>
+
+    Applets are small programs that can be embedded within web pages to perform some specific functionality, such as computations, animations, and information processing. Applets are written using the Java language.
+    
+25. <a id="html-table-color">Is it possible to set specific colors for table borders?</a>
+
+    You can specify a border color using style sheets, but the colors for a table that does not use style sheets will be the same as the text color.
+    
+26. <a id="html-non-list">What happens if the list-style-type property is used on a non-list element like a paragraph?</a>
+
+    If the list-style-type property is used on a non-list element like a paragraph, the property will be ignored and do not affect the paragraph.
+    
+27. <a id="html-newtags-form">What are the new FORM elements which are available in HTML5?</a>
+
+    The new Form elements in HTML5 offers much better functionality than the earlier versions.
+    
+    The tags given provided to carry out these functions are:
+    
+        <datalist> – This tag is use to specify a list of options for input controls.
+        <keygen> – This tag represents a key-pair generator field.
+        <output> – It represents the result of any scripting calculation.
+        
+28. <a id="html-benefits-webstorage">Tell me two benefits of HTML5 Web Storage</a>
+
+    Two main benefits of HTML5 Web Storage:
+    
+    * It can store up to 10 MB data which is certainly more than what cookies have.
+    
+    * Web storage data cannot be transferred with the HTTP request. It helps to increase the performance of the application.
+    
+29. <a id="html-cache">What is the Application Cache in HTML5 and why it is used?</a>
+
+    The Application Cache concept means that a web application is cached. It can be accessible without the need for internet connection.
+    
+    Some advantages of Application Cache:
+    
+        - Offline browsing – Web users can also use the application when they are offline.
+        - Speed – Cached resources load quicker.
+        - Reduce the server load – The web browser will only download updated resources from the server.
+        
+
+        
+
+
 
      
