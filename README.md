@@ -21,6 +21,14 @@ The repository includes interview questions for a front-end developer
 13. [What is the difference between progress and meter tag?](#html-progress-meter)
 14. [What is the use of figure tag in HTML 5?](#html-figure)
 15. [What is the use of figcaption tag in HTML 5?](#html-figcaption)
+16. [What is the use of details and summary tag?](#html-details-summary)
+17. [What is datalist tag?](#html-datalist)
+18. [If I do not put <!DOCTYPE html> will HTML 5 work?](#html-not-doctype)
+19. [What is the use of the required attribute in HTML5?](#html-required)
+20. [Do all character entities display properly on all systems?](#html-character)
+21. [How do you change the number type in the middle of a list?](#html-change-number-list)
+22. [How do you create multicolored text in a webpage?](#html-multicolored)
+23. [What is the advantage of grouping several checkboxes together?](#html-checkboxed-group)
 
 ## Answers
 
@@ -136,3 +144,37 @@ The repository includes interview questions for a front-end developer
 15. <a id="html-figcaption">What is the use of figcaption tag in HTML 5?</a>
 
     The <figcaption> element is used to provide a caption to an image. It is an optional tag and can appear before or after the content within the <figure> tag. The <figcaption> element is used with <figure> element and it can be placed as the first or last child of the <figure> element.
+    
+16. <a id="html-details-summary">What is the use of details and summary tag?</a>
+
+    The details tag is used to specify some additional details on the web page. It can be viewed or hidden on demand. The summary tag is used with details tag.
+    
+17. <a id="html-datalist">What is datalist tag?</a>
+
+    The HTML 5 datalist tag provides an autocomplete feature on the form element. It facilitates users to choose the predefined options to the users to select data.
+    
+18. <a id="html-not-doctype">If I do not put <!DOCTYPE html> will HTML 5 work?</a>
+
+    No, the browser will not be able to identify that it is an HTML document and HTML 5 tags do not function properly.
+    
+19. <a id="html-required">What is the use of the required attribute in HTML5?</a>
+
+    It forces a user to fill text on the text field or text area before submitting the form. It is used for form validation.
+    
+20. <a id="html-character">Do all character entities display properly on all systems?</a>
+
+    No, there are some character entities that cannot be displayed when the operating system that the browser is running on does not support the characters. When that happens, these characters are displayed as boxes.
+    
+21. <a id="html-change-number-list">How do you change the number type in the middle of a list?</a>
+
+    The ```<li>``` tag includes two attributes – type and value. The type attribute can be used to change the numbering type for any list item. The value attribute can change the number index.
+    
+22. <a id="html-multicolored">How do you create multicolored text in a webpage?</a>
+
+    To create text with different colors, use the <font color=”color”>…</font> tags for every character that you want to apply color. You can use this tag combination as many times as needed, surrounding a single character or an entire word.
+    
+23. <a id="html-checkboxes-group">What is the advantage of grouping several checkboxes together?</a>
+
+    Although checkboxes don’t affect one another, grouping checkboxes together help to organize them. Checkbox buttons can have their name and do not need to belong to a group. A single web page can have many different groups of checkboxes.
+
+     
