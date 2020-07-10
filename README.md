@@ -63,7 +63,17 @@ The repository includes interview questions for a front-end developer
 23. [Define different cascading methods that can be used inside the cascading order.](#css-cascading)
 24. [Differentiate between inline and block element.](#css-inline-block)
 25. [How is the concept of inheritance applied in CSS?](#css-inherit)
-26. 
+26. [Explain universal selector.](#css-universal-selector)
+27. [Name the property used to specify the background color of an element.](#css-background-color)
+28. [Name the property for controlling the image repetition of the background.](#css-repeat)
+29. [Name the property for controlling the image position in the background.](#css-image-position)
+30. [Name the property for controlling the image scroll in the background.](#css-background-attachment)
+31. [What are the benefits of CSS sprites?](#css-sprites)
+32. [What are attributes and how are they used?](#css-attr)
+33. [What’s your preferred way of sizing fonts?](#css-fonts)
+34. [What are web safe fonts and fallback fonts?](#css-font-safe)
+35. [How would you use media queries in a mobile-first approach?](#css-how-use-media)
+36. [Have you used Flexbox & CSS Grid before? What are the differences between them?](#css-flex-grid)
 
 
 
@@ -361,6 +371,12 @@ The repository includes interview questions for a front-end developer
             property:value;
         }
         
+        p::first-line { ... }
+        span::first-letter { ... }
+        ::selection { ... }
+        .header::after { ... }
+        .tooltip::before { ... }
+        
 19. <a id="css-opacity">What is CSS opacity?</a>
 
     It is the property that elaborates on the transparency of an element.
@@ -414,4 +430,89 @@ The repository includes interview questions for a front-end developer
     Inheritance is a concept in which the child class will inherit the properties of its parent class. It is a concept which is been used in many languages and is the easy way of defining the same property again.
     
     It is used in CSS to define the hierarchy from the top level to the bottom level. Inherited properties can be overridden by the children's class if the child uses the same name.
+    
+26. <a id="css-universal-selector">Explain universal selector.</a>
+
+    The universal selector matches the name of any of the element type instead of selecting elements of a specific type.
+    
+27. <a id="css-background-color">Name the property used to specify the background color of an element.</a>
+
+    The background-color property is used to specify the background color of the element. For example:
+    
+        <style>    
+        h2,p{    
+            background-color: #b0d4de;    
+        }    
+        </style>
+        
+28. <a id="css-repeat">Name the property for controlling the image repetition of the background.</a>
+
+    The background-repeat property repeats the background image horizontally and vertically. Some images are repeated only horizontally or vertically.
+    
+29. <a id="image-position">Name the property for controlling the image position in the background.</a>
+
+    The background-position property is used to define the initial position of the background image. By default, the background image is placed on the top-left of the webpage.
+    
+    You can set the following positions:
+    
+    * center
+    * top
+    * bottom
+    * left
+    * right
+    
+30. <a id="css-background-attachment">Name the property for controlling the image scroll in the background.</a>
+
+    The background-attachment property is used to specify if the background image is fixed or scroll with the rest of the page in the browser window. If you set fixed the background image, then the image not move during scrolling in the browser. Let's take an example with the fixed background image.
+    
+        background: white url('bbb.gif');  
+        background-repeat: no-repeat;  
+        background-attachment: fixed;  
+        
+31. <a id="css-sprites">What are the benefits of CSS sprites?</a>
+
+    If a web page has a large number of images that take a longer time to load because each image separately sends out an HTTP request. The concept of CSS sprites is used to reduce the loading time for a web page because it combines the various small images into one image. It reduces the number of HTTP requests and hence the loading time.
+    
+32. <a id="css-attr">What are attributes and how are they used?</a>
+
+    You can target elements with particular attributes by using square brackets: ```[attribute="value"]```. For example, you can target all input fields that are of type radio like so:
+    
+        input[type="radio"] {
+            background-color: #eee;
+        }
+        
+33. <a id="css-fonts">What’s your preferred way of sizing fonts?</a>
+
+     You can of course use pixels (px), but there’s also em, rem, %, vs and vh, along with a few others.
+     
+     Defining your font sizes in em allows you to change the size of your text based on the size defined at a higher level. For example, if a container has specified a font-size of 2em, and you specify a font-size of 2em on an element inside that container, that element has an effective font-size of 4em! However, this can be a little confusing as you might not always see the size you expect!
+     
+     The rem unit was created to remedy that confusion. It scales well in the browser, just like em and px, but it uses a base size. From that, all further rem values are calculated. For example, if your base rem value is equal to 16px, then 1rem will always be equal to 16px, 2rem will always be equal to 32px, and so on.
+     
+34. <a id="css-font-safe">What are web safe fonts and fallback fonts?</a>
+
+    Not all operating systems and browsers have the same fonts installed. Web safe fonts are fonts that are commonly pre-installed on many computer systems, such as Arial and Times New Roman. In case the browser or operating system doesn’t recognize the first font you set (e.g. Ubuntu), you should choose a web safe fallback font to display (e.g. Arial), followed by a generic font family (e.g. sans-serif). If your fallback font doesn’t display either, the browser can pick a generic font in the sans-serif family.
+    
+35. <a id="how-use-media">How would you use media queries in a mobile-first approach?</a>
+
+    There’s no way to avoid these nowadays, everyone expects their website to work on mobile devices, even if they don’t specifically ask for it.
+    
+    The most common approach is the mobile-first one. All styles outside of media queries are targeted at mobile devices. Then, through progressively larger media queries, you can style larger screens one step at a time.
+    
+        body { 
+            font-size: 1em;
+        }
+        
+        /* desktop styles */
+        @media only screen and (min-width: 768px) {
+            body {
+                font-size: 1.5em;
+            }
+        }
+        
+36. <a id="css-flex-grid">Have you used Flexbox & CSS Grid before? What are the differences between them?</a>
+
+    Flexbox is a very useful layout tool, especially for smaller areas within the site. Its main features are to align items in horizontal or vertical axes, space them out automatically, invert the order in which they’re displayed, along with a few other layout options.
+    
+    CSS Grid is more of a layout tool for the entire page. While Flexbox excels in laying out items along a single axis, Grid is better for layouts with both horizontal and vertical axes, i.e. grids!
     
