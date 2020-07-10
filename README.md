@@ -449,7 +449,7 @@ The repository includes interview questions for a front-end developer
 
     The background-repeat property repeats the background image horizontally and vertically. Some images are repeated only horizontally or vertically.
     
-29. <a id="image-position">Name the property for controlling the image position in the background.</a>
+29. <a id="css-image-position">Name the property for controlling the image position in the background.</a>
 
     The background-position property is used to define the initial position of the background image. By default, the background image is placed on the top-left of the webpage.
     
@@ -493,7 +493,7 @@ The repository includes interview questions for a front-end developer
 
     Not all operating systems and browsers have the same fonts installed. Web safe fonts are fonts that are commonly pre-installed on many computer systems, such as Arial and Times New Roman. In case the browser or operating system doesn’t recognize the first font you set (e.g. Ubuntu), you should choose a web safe fallback font to display (e.g. Arial), followed by a generic font family (e.g. sans-serif). If your fallback font doesn’t display either, the browser can pick a generic font in the sans-serif family.
     
-35. <a id="how-use-media">How would you use media queries in a mobile-first approach?</a>
+35. <a id="css-how-use-media">How would you use media queries in a mobile-first approach?</a>
 
     There’s no way to avoid these nowadays, everyone expects their website to work on mobile devices, even if they don’t specifically ask for it.
     
