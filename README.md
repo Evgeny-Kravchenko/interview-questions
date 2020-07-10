@@ -44,6 +44,27 @@ The repository includes interview questions for a front-end developer
 4. [Cite different types of CSS.](#css-different-types)
 5. [Why is the external style sheet useful?](#css-useful-external)
 6. [Define CSS image scripts.](#css-image-scripts)
+7. [Explain the term Responsive web design.](#css-responsive)
+8. [What are CSS counters?](#css-counters)
+9. [What is CSS specificity?](#css-specifity)
+10. [How can we calculate specificity?](#css-calculate-specifity)
+11. [How do we make a rounded corner by using CSS?](#css-rounded-corners)
+12. [How will you add border images to an HTML element?](#css-border-image)
+13. [What is CSS flexbox?](#css-flex)
+14. [Write all the properties of the flexbox.](#css-flex-property)
+15. [What is the difference between padding and margin?](#css-mp)
+16. [What is the use of the Box Model in CSS?](#css-box-model)
+17. [What is a CSS pseudo-class?](#css-pseudo-class)
+18. [Explain the concept of pseudo-elements in CSS.](#css-pseudo-elements)
+19. [What is CSS opacity?](#css-opacity)
+20. [Write all the position states used in CSS.](#css-position-states)
+21. [What are the differences between relative and absolute in CSS?](#css-rel-abs-diff)
+22. [Define ‘important’ declarations used in CSS.](#css-important)
+23. [Define different cascading methods that can be used inside the cascading order.](#css-cascading)
+24. [Differentiate between inline and block element.](#css-inline-block)
+25. [How is the concept of inheritance applied in CSS?](#css-inherit)
+26. 
+
 
 
 ## Answers
@@ -261,7 +282,7 @@ The repository includes interview questions for a front-end developer
         - In CSS3, we will find that many graphics related characteristics have been introduced like Border-radius or box-shadow, flexbox.
         - In CSS3, a user can precise multiple background images on a webpage by using properties like background-image, background-position, and background-repeat styles.
         
-4. <a id="css-defferent-types">Cite different types of CSS.</a>
+4. <a id="css-different-types">Cite different types of CSS.</a>
 
     There are three types of CSS as mentioned below:
     
@@ -276,14 +297,121 @@ The repository includes interview questions for a front-end developer
 6. <a id="image-scripts">Define CSS image scripts.</a>
 
     CSS image scripts are a group of images that are placed into one image. It reduces the load time and request number to the server while projecting multiple images into a single web page.
-    
+ 
+7. <a id="css-responsive">Explain the term Responsive web design.</a>
 
+    It is a method in which we design and develop a web page according to the user activities and conditions which are based on various components like the size of the screen, portability of the web page on the different devices, etc. It is done by using different flexible layouts and grids.
     
+8. <a id="css-counters">What are CSS counters?</a>
     
+    CSS counters are variables that can be incremented by rules of CSS that inspector track how many times the variable has been used.
+    
+9. <a id="css-spicifity">What is CSS specificity?</a>
 
+    CSS specificity is a score or rank that decides which style declaration has to be used to an element. (*) this universal selector has low specificity while ID selectors have high specificity.
     
+10. <a id="css-calculate-specifity">How can we calculate specificity?</a>
+
+    To calculate specificity we will start with 0, then we have to add 1000 for each ID and we have to add 10 to the attributes, classes or pseudo-classes with each element name or pseudo-element and later we have to add 1 to them.
+    
+11. <a id="css-rounded-corners">How do we make a rounded corner by using CSS?</a>
+
+    We can make a rounded corner by using the property “border-radius”. We can apply this property to any element.
         
+12. <a id="css-border-image">How will you add border images to an HTML element?</a>
 
+    We can set the image to be used as the border-image alongside an element by using the property of CSS “border-image”.
+    
+13. <a id="css-flex">What is CSS flexbox?</a>
 
+    It allows you to design a flexible responsive layout structure without using any float or positioning property of CSS. To use CSS flexbox you need to define a flex container initially.
+    
+14. <a id="css-flex-property">Write all the properties of the flexbox.</a>
 
-     
+    There are several properties of the flexbox that are used in the HTML webpage.
+    
+    They are:
+    
+        - flex-direction
+        - flex-wrap
+        - flex-flow
+        - justify-content
+        - align-items
+        - align-content
+        
+15. <a id="css-mp">What is the difference between padding and margin?</a>
+
+    In CSS, the margin is the property by which we can create space around elements. In CSS, padding is the property by which we can generate space around an element’s content as well as inside any known border.
+    
+16. <a id="css-box-model">What is the use of the Box Model in CSS?</a>
+
+    In CSS, the box model is a box that binds all the HTML elements and it includes features like margins, border, padding, and the actual content.
+
+17. <a id="css-pseudo-class">What is a CSS pseudo-class?</a>
+    
+    A CSS pseudo-class is a keyword added to a selector that specifies a special state of the selected element(s).
+    
+18. <a id="css-pseudo-elements">Explain the concept of pseudo-elements in CSS.</a>
+
+    It is a feature of CSS which is used to style the given parts of an element.
+    
+    For Example, we can style the first letter or line of an HTML element.
+    
+        selector::pseudo-element {
+            property:value;
+        }
+        
+19. <a id="css-opacity">What is CSS opacity?</a>
+
+    It is the property that elaborates on the transparency of an element.
+    
+    By this property, we can transparent the image that can take the values from 0.0-1.0. If the value is lower, then the image is more transparent. IE8 and earlier versions of the browser can take the values from 0-100.
+    
+20. <a id="css-position-states">Write all the position states used in CSS.</a>
+
+    In CSS, there are four position states as stated below:
+    
+    * Static
+    * Relative
+    * Fixed
+    * Absolute
+    
+21. <a id="css-rel-abs-diff">What are the differences between relative and absolute in CSS?</a>
+
+    The main difference between relative and absolute is that “relative” is used for the same tag in CSS and it means that if we write the left:10px then the padding will shift to 10px in the left while absolute is totally relative to the non-static parent. It means, if we write left:10px then the result will be 10px far from the left edge of the parent element.
+    
+22. <a id="css-important">Define ‘important’ declarations used in CSS.</a>
+
+    Important declarations are defined as that declaration which is having more importance than the normal declaration.
+    
+    While executing, these declarations override the declaration which is having less importance.
+
+23. <a id="css-cascading">Define different cascading methods that can be used inside the cascading order.</a>
+
+    Cascading order is itself a sorting method that allows many other different sorting methods:
+    
+    a) Sort by origin: There are some rules which can provide an alternate way defined as:
+    
+        - The normal weight of the style sheet of a particular provider will be overridden by the increased weight of the user's style sheet.
+        - Stylesheet rules of a particular user will be overridden by the normal width of the provider’s style sheet.
+        
+    b) Sort by selector's specificity: Less specific selector is been overridden by the more specific selector.
+    
+    c) Sort by order specified: This comes in the scenario when the two selectors are of same weight and the other properties than the specification which will be seen for overriding.
+    
+24. <a id="css-inline-block">Differentiate between inline and block element.</a>
+
+    Inline element does not have an element to set width and height and also it does not have the line break.
+    
+    Block element specification:
+    
+    - They do have the line break.
+    - They define the width by setting a container and also allow setting height.
+    - It can also contain an element that occurs in the inline element.
+    
+25. <a id="css-inherit">How is the concept of inheritance applied in CSS?</a>
+
+    Inheritance is a concept in which the child class will inherit the properties of its parent class. It is a concept which is been used in many languages and is the easy way of defining the same property again.
+    
+    It is used in CSS to define the hierarchy from the top level to the bottom level. Inherited properties can be overridden by the children's class if the child uses the same name.
+    
