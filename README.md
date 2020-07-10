@@ -294,7 +294,7 @@ The repository includes interview questions for a front-end developer
 
     External style sheet is very useful as we write all the styling codes in a single file and it can be used anywhere by just referring to the link of that external style sheet file.
     
-6. <a id="image-scripts">Define CSS image scripts.</a>
+6. <a id="css-image-scripts">Define CSS image scripts.</a>
 
     CSS image scripts are a group of images that are placed into one image. It reduces the load time and request number to the server while projecting multiple images into a single web page.
  
@@ -306,7 +306,7 @@ The repository includes interview questions for a front-end developer
     
     CSS counters are variables that can be incremented by rules of CSS that inspector track how many times the variable has been used.
     
-9. <a id="css-spicifity">What is CSS specificity?</a>
+9. <a id="css-specifity">What is CSS specificity?</a>
 
     CSS specificity is a score or rank that decides which style declaration has to be used to an element. (*) this universal selector has low specificity while ID selectors have high specificity.
     
