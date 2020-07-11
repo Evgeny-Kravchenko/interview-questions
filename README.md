@@ -75,6 +75,86 @@ The repository includes interview questions for a front-end developer
 35. [How would you use media queries in a mobile-first approach?](#css-how-use-media)
 36. [Have you used Flexbox & CSS Grid before? What are the differences between them?](#css-flex-grid)
 
+### Javascript
+
+1. [What is JavaScript?](#js-what-is)
+2. [What are JavaScript Data Types?](#js-types)
+3. [What is the use of isNaN function?](#js-isNaN)
+4. [What is negative infinity?](#js-infinity)
+5. [What are global variables? How are these variable declared and what are the problems associated with using them?](#js-global-variables)
+6. [What's the difference between undefined and null?](#js-difference-undefined-null)
+7. [What does the && operator do?](#js-&&)
+8. [What does the || operator do?](#js-||)
+9. [Is using the + or unary plus operator the fastest way in converting a string to a number?](#js-+)
+10. [What is the DOM?](#js-what-is-dom)
+11. [What is Event Propagation?](#js-event-propagation)
+12. [What's Event Bubbling?](#js-event-bubbling)
+13. [What's Event Capturing?](#js-event-capturing)
+14. [What's the difference between event.preventDefault() and event.stopPropagation() methods?](#js-diff-prevent-propagation)
+15. [How to know if the event.preventDefault() method was used in an element?](#js-preventDef-known-use)
+16. [Why does this code obj.someprop.x throw an error?](#js-error-obj-property)
+17. [What is event.target ?](#js-event-target)
+18. [What is event.currentTarget?](#js-current-target)
+19. [What's the difference between == and ===?](#js-diff-comparing)
+20. [Why does it return false when comparing two similar objects in JavaScript?](#js-comparing-two-obj)
+21. [What does the !! operator do?](#js-oper!!-do)
+22. [How to evaluate multiple expressions in one line?](#js-one-line)
+23. [What is Hoisting?](#js-hoisting)
+24. [What is Scope?](#js-scope)
+25. [What are Closures?](#js-closures)
+26. [What are the falsy values in JavaScript?](#js-falsy-values)
+27. [How to check if a value is falsy?](#js-check-falsy)
+28. [What does "use strict" do?](#js-use-strict)
+29. [What's the value of this in JavaScript?](#js-this)
+30. [What is the prototype of an object?](#js-prototype)
+31. [What is an IIFE, what is the use of it?](#js-iive)
+32. [What is the use ```Function.prototype.apply``` method?](#js-apply)
+33. [What is the use Function.prototype.call method?](#js-call)
+34. [What's the difference between Function.prototype.apply and Function.prototype.call?](#js-diff-apply-call)
+35. [What is the usage of Function.prototype.bind?](#js-bind)
+36. [What is Functional Programming and what are the features of JavaScript that makes it a candidate as a functional language?](#js-functional-programing)
+37. [What are Higher Order Functions?](#js-high-order-functions)
+38. [Why are functions called First-class Objects?](#js-why-func-call-obj)
+39. [Implement the Array.prototype.map method by hand.](#js-impl-map)
+40. [Implement the Array.prototype.filter method by hand.](#js-impl-filter)
+41. [Implement the Array.prototype.reduce method by hand.](#js-impl-reduce)
+42. [What is the arguments object?](#js-arg)
+43. [How to create an object without a prototype?](#js-create-obj-without-prot)
+44. [Why does b in this code become a global variable when you call this function?](#js-44)
+45. [What is ECMAScript?](#js-what-ECMA)
+46. [What are the new features in ES6 or ECMAScript 2015?](#js-new-features-es6)
+47. [What's the difference between var, let and const keywords?](#js-var-let-const)
+48. [What are Arrow functions?](#js-arrow-func)
+49. [What are Classes?](#js-classes)
+50. [What are Template Literals?](#js-templ-literals)
+51. [What are ES6 Modules?](#js-es6-modules)
+52. [What is the Set object and how does it work?](#js-set-object)
+53. [What is a Callback function?](#js-callback)
+54. [What are Promises?](#js-promises)
+55. [What is async/await and How does it work?](#js-async-await)
+56. [What's the difference between Spread operator and Rest operator?](#js-spred-rest)
+57. [What are Default Parameters?](#js-default-parameters)
+58. [What are Wrapper Objects?](#js-wrapper-objects)
+59. [What is the difference between Implicit and Explicit Coercion?](#js-diff-impl-expl)
+61. [How to check if a value is an Array?](#js-check-is-array)
+62. [How to check if a certain property exists in an object?](#js-check-property-exist)
+63. [What is AJAX?](#js-ajax)
+64. [What are the ways of making objects in JavaScript?](#js-create-object)
+65. [What's the difference between Object.seal and Object.freeze methods?](#js-diff-freeze-seal)
+66. [What's the difference between the in operator and the hasOwnProperty method in objects?](#js-diff-in-hasOwnProperty)
+67. [What are the ways to deal with Asynchronous Code in JavasScript?](#js-asynch)
+68. [What's the difference between a function expression and function declaration?](#js-expr-decl)
+69. [How many ways can a function be invoked?](#js-ways-invoke-func)
+70. [What is memoization and what's the use it?](#js-memoization)
+71. [Implement a memoization helper function.](#js-impl-memoization)
+72. [Why does typeof null return object? How to check if a value is null?](#js-null-obj)
+73. [What does the new keyword do?](#js-new)
+
+
+
+
+
+
 
 
 ## Answers
@@ -190,7 +270,7 @@ The repository includes interview questions for a front-end developer
     
 15. <a id="html-figcaption">What is the use of figcaption tag in HTML 5?</a>
 
-    The <figcaption> element is used to provide a caption to an image. It is an optional tag and can appear before or after the content within the <figure> tag. The <figcaption> element is used with <figure> element and it can be placed as the first or last child of the <figure> element.
+    The ```<figcaption>``` element is used to provide a caption to an image. It is an optional tag and can appear before or after the content within the <figure> tag. The ```<figcaption>``` element is used with ```<figure>``` element and it can be placed as the first or last child of the ```<figure>``` element.
     
 16. <a id="html-details-summary">What is the use of details and summary tag?</a>
 
@@ -200,7 +280,7 @@ The repository includes interview questions for a front-end developer
 
     The HTML 5 datalist tag provides an autocomplete feature on the form element. It facilitates users to choose the predefined options to the users to select data.
     
-18. <a id="html-not-doctype">If I do not put <!DOCTYPE html> will HTML 5 work?</a>
+18. <a id="html-not-doctype">If I do not put ```<!DOCTYPE html>``` will HTML 5 work?</a>
 
     No, the browser will not be able to identify that it is an HTML document and HTML 5 tags do not function properly.
     
@@ -218,7 +298,7 @@ The repository includes interview questions for a front-end developer
     
 22. <a id="html-multicolored">How do you create multicolored text in a webpage?</a>
 
-    To create text with different colors, use the <font color=”color”>…</font> tags for every character that you want to apply color. You can use this tag combination as many times as needed, surrounding a single character or an entire word.
+    To create text with different colors, use the ```<font color=”color”>…</font>``` tags for every character that you want to apply color. You can use this tag combination as many times as needed, surrounding a single character or an entire word.
     
 23. <a id="html-checkboxes-group">What is the advantage of grouping several checkboxes together?</a>
 
@@ -516,3 +596,117 @@ The repository includes interview questions for a front-end developer
     
     CSS Grid is more of a layout tool for the entire page. While Flexbox excels in laying out items along a single axis, Grid is better for layouts with both horizontal and vertical axes, i.e. grids!
     
+### Javascript
+
+1. <a id="js-what-is">What is JavaScript?</a>
+
+    JavaScript is the most popular web scripting language, used for both client-side as well as server-side development. Supporting object-oriented programming abilities, the JavaScript code can be inserted into HTML pages that can be understood and executed by web browsers.
+    
+2. <a id="types">What are JavaScript Data Types?</a>
+
+    * Boolean
+    * null
+    * number
+    * object
+    * string
+    * symbol
+    * undefined
+    * bigInt
+    
+3. <a id="#js-isNaN">What is the use of isNaN function?</a>
+
+    isNan function returns true if the argument is not a number otherwise it is false.
+    
+4. <a id="js-infinity">What is negative infinity?</a>
+
+    Negative Infinity is a number in JavaScript which can be derived by dividing negative number by zero.
+    
+5. <a id="js-global-variables">What are global variables? How are these variable declared and what are the problems associated with using them?</a>
+
+    Global variables are those that are available throughout the length of the code, that is, these have no scope. The var keyword is used to declare a local variable or object. If the var keyword is omitted, a global variable is declared.
+    
+    Example:
+    
+        Declare a global globalVariable = "Test";
+    
+    The problems that are faced by using global variables are the clash of variable names of local and global scope. Also, it is difficult to debug and test the code that relies on global variables.
+
+6. <a id="js-difference-undefined-null">What's the difference between undefined and null?</a>
+
+    * ```undefined``` is the default value of a variable that has not been assigned a specific value. Or a function that has no explicit return value ex. Or a property that does not exist in an object. The JavaScript engine does this for us the assigning of undefined value.
+    * ```null``` is "a value that represents no value". null is value that has been explicitly defined to a variable. In this example we get a value of null when the fs.readFile method does not throw an error.
+    
+    When comparing ```null``` and ```undefined``` we get true when using ```==``` and false when using ```===.```.
+    
+7. <a id="#js-&&">What does the && operator do?</a>
+
+    The ```&&``` or Logical AND operator finds the first falsy expression in its operands and returns it and if it does not find any falsy expression it returns the last expression.
+    
+8. <a id="js-||">What does the || operator do?</a>
+
+    The ```||``` or Logical OR operator finds the first truthy expression in its operands and returns it.
+    
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
+2. <a id=""></a>
