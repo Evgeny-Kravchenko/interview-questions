@@ -638,7 +638,7 @@ The repository includes interview questions for a front-end developer
     
     When comparing ```null``` and ```undefined``` we get true when using ```==``` and false when using ```===.```.
     
-7. <a id="#js-&&">What does the && operator do?</a>
+7. <a id="js-&&">What does the && operator do?</a>
 
     The ```&&``` or Logical AND operator finds the first falsy expression in its operands and returns it and if it does not find any falsy expression it returns the last expression.
     
@@ -646,8 +646,44 @@ The repository includes interview questions for a front-end developer
 
     The ```||``` or Logical OR operator finds the first truthy expression in its operands and returns it.
     
-2. <a id=""></a>
-2. <a id=""></a>
+9. <a id="js-+">Is using the + or unary plus operator the fastest way in converting a string to a number?</a>
+
+    According to MDN Documentation the ```+``` is the fastest way of converting a string to a number because it does not perform any operations on the value if it is already a number.
+
+10. <a id="js-what-is-dom">What is the DOM?</a>
+    
+    DOM stands for Document Object Model is an interface (API) for HTML and XML documents. When the browser first reads (parses) our HTML document it creates a big object, a really big object based on the HTML document this is the DOM. It is a tree-like structure that is modeled from the HTML document. The DOM is used for interacting and modifying the DOM structure or specific Elements or Nodes.
+    
+    Imagine if we have an HTML structure like this.
+    
+        <!DOCTYPE html>
+           <html lang="en">
+           
+           <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <meta http-equiv="X-UA-Compatible" content="ie=edge">
+              <title>Document Object Model</title>
+           </head>
+           
+           <body>
+              <div>
+                 <p>
+                    <span></span>
+                 </p>
+                 <label></label>
+                 <input>
+              </div>
+           </body>
+           
+           </html>
+    
+    The DOM equivalent would be like this.
+    
+    ![dom-tree](./images/dom-tree.png "dom-tree")
+    
+    The document object in JavaScript represents the DOM. It provides us many methods that we can use to selecting elements to update element contents and many more.
+
 2. <a id=""></a>
 2. <a id=""></a>
 2. <a id=""></a>
