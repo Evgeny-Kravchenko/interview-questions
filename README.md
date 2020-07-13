@@ -152,6 +152,160 @@ The repository includes interview questions for a front-end developer
 
 ### Javascript tasks
 
+1. [What is a potential pitfall with using ```typeof bar === "object"``` to determine if bar is an object? How can this pitfall be avoided?](#js-task-1)
+2. [What will the code below output to the console and why?](#js-task-2)
+
+        (function(){
+          var a = b = 3;
+        })();
+        
+        console.log("a defined? " + (typeof a !== 'undefined'));
+        console.log("b defined? " + (typeof b !== 'undefined'));
+
+3. [What will the code below output to the console and why?](#js-task-3)
+
+        var myObject = {
+            foo: "bar",
+            func: function() {
+                var self = this;
+                console.log("outer func:  this.foo = " + this.foo);
+                console.log("outer func:  self.foo = " + self.foo);
+                (function() {
+                    console.log("inner func:  this.foo = " + this.foo);
+                    console.log("inner func:  self.foo = " + self.foo);
+                }());
+            }
+        };
+        myObject.func();
+
+4. [Consider the two functions below. Will they both return the same thing? Why or why not?](#js-task-4)
+
+        function foo1()
+                {
+                  return {
+                      bar: "hello"
+                  };
+                }
+                
+                function foo2()
+                {
+                  return
+                  {
+                      bar: "hello"
+                  };
+        }
+
+5. [What will the code below output? Explain your answer.](#js-task-5)
+
+        console.log(0.1 + 0.2);
+        console.log(0.1 + 0.2 == 0.3);
+
+6. [Discuss possible ways to write a function ```isInteger(x)``` that determines if ```x``` is an integer.](#js-task-6)
+7. [In what order will the numbers 1-4 be logged to the console when the code below is executed? Why?](#js-task-7)
+
+        (function() {
+            console.log(1); 
+            setTimeout(function(){console.log(2)}, 1000); 
+            setTimeout(function(){console.log(3)}, 0); 
+            console.log(4);
+        })();
+
+8. [Write a simple function (less than 160 characters) that returns a boolean indicating whether or not a string is a palindrome.](#js-task-8)
+9. [Write a sum method which will work properly when invoked using either syntax below.](#js-task-9)
+10. [Consider the following code snippet:](#js-task-10)
+
+        for (var i = 0; i < 5; i++) {
+          var btn = document.createElement('button');
+          btn.appendChild(document.createTextNode('Button ' + i));
+          btn.addEventListener('click', function(){ console.log(i); });
+          document.body.appendChild(btn);
+        }
+        
+    * What gets logged to the console when the user clicks on “Button 4” and why?
+    * Provide one or more alternate implementations that will work as expected.
+    
+11. [Assuming d is an “empty” object in scope, say:](#js-task-11)
+
+        var d = {};
+    
+    …what is accomplished using the following code?
+    
+        [ 'zebra', 'horse' ].forEach(function(k) {
+            d[k] = undefined;
+        });
+        
+12. [What will the code below output to the console and why?](#js-task-12)
+
+    var arr1 = "john".split('');
+    var arr2 = arr1.reverse();
+    var arr3 = "jones".split('');
+    arr2.push(arr3);
+    console.log("array 1: length=" + arr1.length + " last=" + arr1.slice(-1));
+    console.log("array 2: length=" + arr2.length + " last=" + arr2.slice(-1));
+
+13. [What will the code below output to the console and why ?](#js-task-13)
+
+    console.log(1 +  "2" + "2");
+    console.log(1 +  +"2" + "2");
+    console.log(1 +  -"1" + "2");
+    console.log(+"1" +  "1" + "2");
+    console.log( "A" - "B" + "2");
+    console.log( "A" - "B" + 2);
+
+14. [The following recursive code will cause a stack overflow if the array list is too large. How can you fix this and still retain the recursive pattern?](#js-task-14)
+
+        var list = readHugeList();
+        
+        var nextListItem = function() {
+            var item = list.pop();
+        
+            if (item) {
+                // process the list item...
+                nextListItem();
+            }
+        };
+    
+15. [What will be the output of the following code:](#js-task-15)
+
+        for (var i = 0; i < 5; i++) {
+        	setTimeout(function() { console.log(i); }, i * 1000 );
+        }
+
+16. [What would the following lines of code output to the console?](#js-task-16)
+
+        console.log("0 || 1 = "+(0 || 1));
+        console.log("1 || 2 = "+(1 || 2));
+        console.log("0 && 1 = "+(0 && 1));
+        console.log("1 && 2 = "+(1 && 2));
+
+17. [What will be the output when the following code is executed? Explain.](#js-task-17)
+
+        console.log(false == '0')
+        console.log(false === '0')
+
+18. [What is the output out of the following code? Explain your answer.](#js-task-18)
+
+                var a={},
+                    b={key:'b'},
+                    c={key:'c'};
+                
+                a[b]=123;
+                a[c]=456;
+                
+                console.log(a[b]);
+
+19. [What will the following code output to the console:](#js-task-19)
+
+        console.log((function f(n){return ((n > 1) ? n * f(n-1) : n)})(10));
+
+20. [](#js-task-20)
+21. [](#js-task-21)
+22. [](#js-task-22)
+23. [](#js-task-23)
+24. [](#js-task-24)
+25. [](#js-task-25)
+
+
 ## Answers
 
 ### HTML
@@ -2535,3 +2689,429 @@ The repository includes interview questions for a front-end developer
     
     In the above image, it will first create an empty object {} then
     it will the ```this``` value to that empty object ```this = {}``` and add properties to that this object. Because we don't have a explicit return statement it automatically returns the this for us.
+
+### Javascript tasks
+
+1. <a id="js-task-1">What is a potential pitfall with using ```typeof bar === "object"``` to determine if bar is an object? How can this pitfall be avoided?</a>
+
+    Although ```typeof bar === "object"``` is a reliable way of checking if bar is an ```object```, the surprising gotcha in JavaScript is that null is also considered an ```object```!
+        
+    Therefore, the following code will, to the surprise of most developers, log ```true``` (not ```false```) to the console:
+        
+        var bar = null;
+        console.log(typeof bar === "object");  // logs true!
+            
+    As long as one is aware of this, the problem can easily be avoided by also checking if ```bar``` is ```null```:
+        
+        console.log((bar !== null) && (typeof bar === "object"));  // logs false
+        
+2. <a id="js-task-2">What will the code below output to the console and why?</a>
+
+    (function(){
+              var a = b = 3;
+            })();
+            
+            console.log("a defined? " + (typeof a !== 'undefined'));
+            console.log("b defined? " + (typeof b !== 'undefined'));
+            
+    ---
+
+    As a result (if you are not using strict mode), the output of the code snippet would be:
+    
+        a defined? false
+        b defined? true
+        
+    But how can ```b``` be defined outside of the scope of the enclosing function? Well, since the statement ```var a = b = 3;``` is shorthand for the statements ```b = 3;``` and ```var a = b;```, ```b``` ends up being a global variable (since it is not preceded by the var keyword) and is therefore still in scope even outside of the enclosing function.
+    
+3. <a id="js-task-3">What will the code below output to the console and why?</a>
+
+        var myObject = {
+                    foo: "bar",
+                    func: function() {
+                        var self = this;
+                        console.log("outer func:  this.foo = " + this.foo);
+                        console.log("outer func:  self.foo = " + self.foo);
+                        (function() {
+                            console.log("inner func:  this.foo = " + this.foo);
+                            console.log("inner func:  self.foo = " + self.foo);
+                        }());
+                    }
+                };
+        myObject.func();
+                
+    ---
+
+    The above code will output the following to the console:
+    
+        outer func:  this.foo = bar
+        outer func:  self.foo = bar
+        inner func:  this.foo = undefined
+        inner func:  self.foo = bar
+        
+    In the outer function, both ```this``` and ```self``` refer to ```myObject``` and therefore both can properly reference and access ```foo```.
+    
+    In the ```inner``` function, though, this no longer refers to ```myObject```. As a result, ```this.foo``` is ```undefined``` in the inner function, whereas the reference to the local variable ```self``` remains in scope and is accessible there.
+    
+4. <a id="js-task-4">Consider the two functions below. Will they both return the same thing? Why or why not?</a>
+
+        function foo1()
+        {
+          return {
+              bar: "hello"
+          };
+        }
+        
+        function foo2()
+        {
+          return
+          {
+              bar: "hello"
+          };
+        }
+        
+    ---
+    
+    Surprisingly, these two functions will not return the same thing. Rather:
+    
+        console.log("foo1 returns:");
+        console.log(foo1());
+        console.log("foo2 returns:");
+        console.log(foo2());
+        
+    will yield:
+    
+        foo1 returns:
+        Object {bar: "hello"}
+        foo2 returns:
+        undefined 
+        
+    The reason for this has to do with the fact that semicolons are technically optional in JavaScript (although omitting them is generally really bad form). As a result, when the line containing the ```return``` statement (with nothing else on the line) is encountered in ```foo2()```, a semicolon is automatically inserted immediately after the return statement.
+
+5. <a id="js-task-5">What will the code below output? Explain your answer.</a>
+
+        console.log(0.1 + 0.2);
+        console.log(0.1 + 0.2 == 0.3);
+    
+    ---
+    
+    An educated answer to this question would simply be: “You can’t be sure. it might print out ```0.3``` and ```true```, or it might not. Numbers in JavaScript are all treated with floating point precision, and as such, may not always yield the expected results.”
+    
+    The example provided above is classic case that demonstrates this issue. Surprisingly, it will print out:
+    
+        0.30000000000000004
+        false
+    
+6. <a id="js-task-6">Discuss possible ways to write a function isInteger(x) that determines if x is an integer.</a>
+
+    This may sound trivial and, in fact, it is trivial with ECMAscript 6 which introduces a new ```Number.isInteger()``` function for precisely this purpose. However, prior to ECMAScript 6, this is a bit more complicated, since no equivalent of the ```Number.isInteger()``` method is provided.
+    
+    With that in mind, the simplest and cleanest pre-ECMAScript-6 solution (which is also sufficiently robust to return ```false``` even if a non-numeric value such as a ```string``` or ```null``` is passed to the function) would be the following use of the bitwise XOR operator:
+    
+        function isInteger(x) { return (x ^ 0) === x; } 
+        
+    The following solution would also work, although not as elegant as the one above:
+    
+        function isInteger(x) { return Math.round(x) === x; }
+    
+7. <a id="js-task-7">In what order will the numbers 1-4 be logged to the console when the code below is executed? Why?</a>
+
+        (function() {
+            console.log(1); 
+            setTimeout(function(){console.log(2)}, 1000); 
+            setTimeout(function(){console.log(3)}, 0); 
+            console.log(4);
+        })();
+            
+    ---
+    
+    The values will be logged in the following order:
+    
+        1
+        4
+        3
+        2
+        
+    Let’s first explain the parts of this that are presumably more obvious:
+    
+    * ```1``` and ```4``` are displayed first since they are logged by simple calls to ```console.log()``` without any delay
+    * ```2``` is displayed after ```3``` because ```2``` is being logged after a delay of 1000 msecs (i.e., 1 second) whereas ```3``` is being logged after a delay of 0 msecs.
+
+    The browser has an event loop which checks the event queue and processes pending events. For example, if an event happens in the background (e.g., a script ```onload``` event) while the browser is busy (e.g., processing an ```onclick```), the event gets appended to the queue. When the onclick handler is complete, the queue is checked and the event is then handled (e.g., the ```onload``` script is executed).
+    
+8. <a id="js-task-8">Write a simple function (less than 160 characters) that returns a boolean indicating whether or not a string is a palindrome.</a>
+
+        function isPalindrome(string) {
+            return string.toLowerCase() === string.toLowerCase().split("").reverse().join("");
+        }
+        
+        console.log(isPalindrome("level"));                   // logs 'true'
+        console.log(isPalindrome("levels"));                  // logs 'false'
+    
+9. <a id="js-task-9">Write a sum method which will work properly when invoked using either syntax below.</a>
+
+        function sum(...arr) {
+        	const result = arr.reduce((acc, item) => {
+          	return acc + item;
+          }, Number(sum) || 0);
+          
+          sum.toString = function () {
+          	return result;
+          }
+          
+          return sum;
+        }
+
+10. <a id="js-task-10">Consider the following code snippet:</a>
+
+        for (var i = 0; i < 5; i++) {
+          var btn = document.createElement('button');
+          btn.appendChild(document.createTextNode('Button ' + i));
+          btn.addEventListener('click', function(){ console.log(i); });
+          document.body.appendChild(btn);
+        }
+                
+    * What gets logged to the console when the user clicks on “Button 4” and why?
+            
+    No matter what button the user clicks the number ```5``` will always be logged to the console. This is because, at the point that the ```onclick``` method is invoked (for any of the buttons), the ```for``` loop has already completed and the variable ```i``` already has a value of ```5```.
+        
+    * Provide one or more alternate implementations that will work as expected.
+    
+    The key to making this work is to capture the value of ```i``` at each pass through the ```for``` loop by passing it into a newly created function object. Here are four possible ways to accomplish this:
+    
+        for (var i = 0; i < 5; i++) {
+          var btn = document.createElement('button');
+          btn.appendChild(document.createTextNode('Button ' + i));
+          btn.addEventListener('click', (function(i) {
+            return function() { console.log(i); };
+          })(i));
+          document.body.appendChild(btn);
+        }
+        
+    ---
+    
+        for (var i = 0; i < 5; i++) {
+          var btn = document.createElement('button');
+          btn.appendChild(document.createTextNode('Button ' + i));
+          (function (i) {
+            btn.addEventListener('click', function() { console.log(i); });
+          })(i);
+          document.body.appendChild(btn);
+        }
+        
+    ---
+    
+        ['a', 'b', 'c', 'd', 'e'].forEach(function (value, i) {
+          var btn = document.createElement('button');
+          btn.appendChild(document.createTextNode('Button ' + i));
+          btn.addEventListener('click', function() { console.log(i); });
+          document.body.appendChild(btn);
+        });
+        
+    ---
+    
+        for (let i = 0; i < 5; i++) {
+          var btn = document.createElement('button');
+          btn.appendChild(document.createTextNode('Button ' + i));
+          btn.addEventListener('click', function(){ console.log(i); });
+          document.body.appendChild(btn);
+        }
+        
+11. <a id="js-task-11">Assuming d is an “empty” object in scope, say:</a>
+
+    …what is accomplished using the following code?
+    
+    The snippet of code shown above sets two properties on the object ```d```. Ideally, any lookup performed on a JavaScript object with an unset key evaluates to ```undefined```. But running this code marks those properties as ```“own properties”``` of the object.
+    
+    This is a useful strategy for ensuring that an object has a given set of properties. Passing this object to ```Object.keys``` will return an array with those set keys as well (even if their values are ```undefined```).
+    
+12. <a id="js-task-12">What will the code below output to the console and why?</a>
+
+    var arr1 = "john".split('');
+    var arr2 = arr1.reverse();
+    var arr3 = "jones".split('');
+    arr2.push(arr3);
+    console.log("array 1: length=" + arr1.length + " last=" + arr1.slice(-1));
+    console.log("array 2: length=" + arr2.length + " last=" + arr2.slice(-1));
+    
+    ---
+    
+    The logged output will be:
+    
+        "array 1: length=5 last=j,o,n,e,s"
+        "array 2: length=5 last=j,o,n,e,s"
+        
+    arr1 and arr2 are the same (i.e. ```['n','h','o','j', ['j','o','n','e','s'] ]```) after the above code is executed for the following reasons:
+    
+    * Calling an array object’s ```reverse()``` method doesn’t only return the array in reverse order, it also reverses the order of the array itself (i.e., in this case, arr1).
+    * The ```reverse()``` method returns a reference to the array itself (i.e., in this case, ```arr1```). As a result, ```arr2``` is simply a reference to (rather than a copy of) ```arr1```. Therefore, when anything is done to ```arr2``` (i.e., when we invoke ```arr2.push(arr3);```), ```arr1``` will be affected as well since ```arr1``` and ```arr2``` are simply references to the same object.
+    
+13. <a id="js-task-13">What will the code below output to the console and why ?</a>
+
+        console.log(1 +  "2" + "2");
+        console.log(1 +  +"2" + "2");
+        console.log(1 +  -"1" + "2");
+        console.log(+"1" +  "1" + "2");
+        console.log( "A" - "B" + "2");
+        console.log( "A" - "B" + 2);
+        
+    ---
+    
+        "122"
+        "32"
+        "02"
+        "112"
+        "NaN2"
+        NaN
+
+14. <a id="js-task-14">The following recursive code will cause a stack overflow if the array list is too large. How can you fix this and still retain the recursive pattern?</a>
+
+        var list = readHugeList();
+        
+        var nextListItem = function() {
+            var item = list.pop();
+        
+            if (item) {
+                // process the list item...
+                nextListItem();
+            }
+        };
+        
+    ---
+    
+    The potential stack overflow can be avoided by modifying the nextListItem function as follows:
+    
+        var list = readHugeList();
+        
+        var nextListItem = function() {
+            var item = list.pop();
+        
+            if (item) {
+                // process the list item...
+                setTimeout( nextListItem, 0);
+            }
+        };
+        
+    The stack overflow is eliminated because the event loop handles the recursion, not the call stack. When nextListItem runs, if ```item``` is not ```null```, the timeout function (```nextListItem```) is pushed to the event queue and the function exits, thereby leaving the call stack clear. When the event queue runs its timed-out event, the next ```item``` is processed and a timer is set to again invoke ```nextListItem```. Accordingly, the method is processed from start to finish without a direct recursive call, so the call stack remains clear, regardless of the number of iterations.
+
+15. <a id="js-task-15">What will be the output of the following code:</a>
+
+        for (var i = 0; i < 5; i++) {
+            setTimeout(function() { console.log(i); }, i * 1000 );
+        }
+        
+    ---
+
+    The code sample shown will not display the values 0, 1, 2, 3, and 4 as might be expected; rather, it will display 5, 5, 5, 5, and 5.
+    
+    The reason for this is that each function executed within the loop will be executed after the entire loop has completed and all will therefore reference the last value stored in ```i```, which was ```5```.
+    
+    Closures can be used to prevent this problem by creating a unique scope for each iteration, storing each unique value of the variable within its scope, as follows:
+    
+        for (var i = 0; i < 5; i++) {
+            (function(x) {
+                setTimeout(function() { console.log(x); }, x * 1000 );
+            })(i);
+        }
+        
+    In an ES2015 context, you can simply use let instead of var in the original code:
+    
+        for (let i = 0; i < 5; i++) {
+        	setTimeout(function() { console.log(i); }, i * 1000 );
+        }
+    
+16. <a id="js-task-16">What would the following lines of code output to the console?</a>
+
+        console.log("0 || 1 = "+(0 || 1));
+        console.log("1 || 2 = "+(1 || 2));
+        console.log("0 && 1 = "+(0 && 1));
+        console.log("1 && 2 = "+(1 && 2));
+        
+    ---
+    
+    The code will output the following four lines:
+    
+        0 || 1 = 1
+        1 || 2 = 1
+        0 && 1 = 0
+        1 && 2 = 2
+        
+    In JavaScript, both || and && are logical operators that return the first fully-determined “logical value” when evaluated from left to right.
+
+17. <a id="js-task-17">What will be the output when the following code is executed? Explain.</a>
+
+        console.log(false == '0')
+        console.log(false === '0')
+        
+    ---
+    
+    The code will output:
+    
+        true
+        false
+        
+    In JavaScript, there are two sets of equality operators. The triple-equal operator ```===``` behaves like any traditional equality operator would: evaluates to ```true``` if the two expressions on either of its sides have the same type and the same value. The double-equal operator, however, tries to coerce the values before comparing them. It is therefore generally good practice to use the ```===``` rather than ```==.``` The same holds true for ```!==``` vs ```!=```.
+
+18. <a id="js-task-18">What is the output out of the following code? Explain your answer.</a>
+
+        var a={},
+            b={key:'b'},
+            c={key:'c'};
+        
+        a[b]=123;
+        a[c]=456;
+        
+        console.log(a[b]);
+        
+    ---
+    
+    The output of this code will be ```456``` (not ```123```).
+    
+    The reason for this is as follows: When setting an object property, JavaScript will implicitly stringify the parameter value. In this case, since ```b``` and ```c``` are both objects, they will both be converted to ```[object Object]```. As a result, ```a[b]``` and ```a[c]``` are both equivalent to ```a["[object Object]"]``` and can be used interchangeably. Therefore, setting or referencing ```a[c]``` is precisely the same as setting or referencing ```a[b]```.
+
+19. <a id="js-task-19">What will the following code output to the console:</a>
+
+        console.log((function f(n){return ((n > 1) ? n * f(n-1) : n)})(10));
+            
+    ---
+    
+    The code will output the value of 10 factorial (i.e., 10!, or 3,628,800).
+    
+    Here’s why:
+    
+    The named function ```f()``` calls itself recursively, until it gets down to calling ```f(1)``` which simply returns ```1```. Here, therefore, is what this does:
+    
+        f(1): returns n, which is 1
+        f(2): returns 2 * f(1), which is 2
+        f(3): returns 3 * f(2), which is 6
+        f(4): returns 4 * f(3), which is 24
+        f(5): returns 5 * f(4), which is 120
+        f(6): returns 6 * f(5), which is 720
+        f(7): returns 7 * f(6), which is 5040
+        f(8): returns 8 * f(7), which is 40320
+        f(9): returns 9 * f(8), which is 362880
+        f(10): returns 10 * f(9), which is 3628800
+
+20. <a id="js-task-20">Consider the code snippet below. What will the console output be and why?</a>
+
+        (function(x) {
+            return (function(y) {
+                console.log(x);
+            })(2)
+        })(1);
+        
+    ---
+    
+    The output will be ```1```, even though the value of ```x``` is never set in the inner function. Here’s why:
+    
+    A closure is a function, along with all variables or functions that were in-scope at the time that the closure was created. In JavaScript, a closure is implemented as an “inner function”; i.e., a function defined within the body of another function. An important feature of closures is that an inner function still has access to the outer function’s variables.
+    
+    Therefore, in this example, since ```x``` is not defined in the inner function, the scope of the outer function is searched for a defined variable ```x```, which is found to have a value of ```1```.
+
+21. <a id="js-task-21"></a>
+22. <a id="js-task-22"></a>
+23. <a id="js-task-23"></a>
+24. <a id="js-task-24"></a>
+25. <a id="js-task-25"></a>
+26. <a id="js-task-26"></a>
+27. <a id="js-task-27"></a>
+28. <a id="js-task-28"></a>
