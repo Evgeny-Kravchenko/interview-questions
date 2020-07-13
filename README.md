@@ -298,12 +298,93 @@ The repository includes interview questions for a front-end developer
 
         console.log((function f(n){return ((n > 1) ? n * f(n-1) : n)})(10));
 
-20. [](#js-task-20)
-21. [](#js-task-21)
-22. [](#js-task-22)
-23. [](#js-task-23)
-24. [](#js-task-24)
-25. [](#js-task-25)
+20. [Consider the code snippet below. What will the console output be and why?](#js-task-20)
+
+        (function(x) {
+            return (function(y) {
+                console.log(x);
+            })(2)
+        })(1);              
+
+21. [What will the following code output to the console and why:](#js-task-21)
+
+        var hero = {
+            _name: 'John Doe',
+            getSecretIdentity: function (){
+                return this._name;
+            }
+        };
+        
+        var stoleSecretIdentity = hero.getSecretIdentity;
+        
+        console.log(stoleSecretIdentity());
+        console.log(hero.getSecretIdentity());
+
+22. [Create a function that, given a DOM Element on the page, will visit the element itself and all of its descendents (not just its immediate children). For each element visited, the function should pass that element to a provided callback function.](#js-task-22)
+    
+    The arguments to the function should be:
+    
+    * a DOM element
+    * a callback function (that takes a DOM element as its argument)
+
+23. [Testing your this knowledge in JavaScript: What is the output of the following code?](#js-task-23)
+
+        var length = 10;
+                function fn() {
+                	console.log(this.length);
+                }
+                
+                var obj = {
+                  length: 5,
+                  method: function(fn) {
+                    fn();
+                    arguments[0]();
+                  }
+                };
+                
+        obj.method(fn, 1);
+
+24. [Consider the following code. What will the output be, and why?](#js-task-24)
+
+        (function () {
+            try {
+                throw new Error();
+            } catch (x) {
+                var x = 1, y = 2;
+                console.log(x);
+            }
+            console.log(x);
+            console.log(y);
+        })();
+        
+25. [What will be the output of this code?](#js-task-25)
+
+        var x = 21;
+                var girl = function () {
+                    console.log(x);
+                    var x = 20;
+                };
+        girl ();
+
+26. [How do you clone an object?](#js-task-26)
+27. [What do the following lines output, and why?](#js-task-27)
+
+        console.log(1 < 2 < 3);
+        console.log(3 > 2 > 1);
+
+28. [How do you add an element at the begining of an array? How do you add one at the end?](#js-task-28)
+29. [Imagine you have this code:](#js-task-29)
+
+        var a = [1, 2, 3];
+        
+    a) Will this result in a crash?
+    
+    b) What will this output?
+    
+        console.log(a[6]);
+
+30. [](#js-task-30)
+31. [](#js-task-31)
 
 
 ## Answers
@@ -3107,11 +3188,202 @@ The repository includes interview questions for a front-end developer
     
     Therefore, in this example, since ```x``` is not defined in the inner function, the scope of the outer function is searched for a defined variable ```x```, which is found to have a value of ```1```.
 
-21. <a id="js-task-21"></a>
-22. <a id="js-task-22"></a>
-23. <a id="js-task-23"></a>
-24. <a id="js-task-24"></a>
-25. <a id="js-task-25"></a>
-26. <a id="js-task-26"></a>
-27. <a id="js-task-27"></a>
-28. <a id="js-task-28"></a>
+21. <a id="js-task-21">What will the following code output to the console and why:</a>
+
+            var hero = {
+                _name: 'John Doe',
+                getSecretIdentity: function (){
+                    return this._name;
+                }
+            };
+            
+            var stoleSecretIdentity = hero.getSecretIdentity;
+            
+            console.log(stoleSecretIdentity());
+            console.log(hero.getSecretIdentity());
+        
+    ---
+        
+        The code will output:
+        
+            undefined
+            John Doe
+            
+        The first ```console.log``` prints ```undefined``` because we are extracting the method from the ```hero``` object, so ```stoleSecretIdentity()``` is being invoked in the global context (i.e., the ```window``` object) where the ```_name``` property does not exist.
+    
+        One way to fix the ```stoleSecretIdentity()``` function is as follows:
+        
+            var stoleSecretIdentity = hero.getSecretIdentity.bind(hero);
+
+22. <a id="js-task-22">Create a function that, given a DOM Element on the page, will visit the element itself and all of its descendents (not just its immediate children). For each element visited, the function should pass that element to a provided callback function.</a>
+
+    The arguments to the function should be:
+    
+    * a DOM element
+    * a callback function (that takes a DOM element as its argument)
+    
+    ---
+    
+    Visiting all elements in a tree (DOM) is a classic Depth-First-Search algorithm application. Here’s an example solution:
+    
+        function Traverse(p_element,p_callback) {
+           p_callback(p_element);
+           var list = p_element.children;
+           for (var i = 0; i < list.length; i++) {
+               Traverse(list[i],p_callback);  // recursive call
+           }
+        }
+
+23. <a id="js-task-23">Testing your this knowledge in JavaScript: What is the output of the following code?</a>
+
+        var length = 10;
+        function fn() {
+        	console.log(this.length);
+        }
+        
+        var obj = {
+          length: 5,
+          method: function(fn) {
+            fn();
+            arguments[0]();
+          }
+        };
+        
+        obj.method(fn, 1);
+        
+    ---
+    
+    Output:
+    
+        10
+        2
+        
+    In the first place, as ``fn`` is passed as a parameter to the function method, the scope (```this```) of the function ```fn``` is ```window```. ```var length = 10;``` is declared at the ```window``` level. It also can be accessed as ```window.length``` or ```length``` or ```this.length``` (when ```this === window```.)
+    
+    method is bound to Object ```obj```, and ```obj.method``` is called with parameters ```fn``` and ```1```. Though ```method``` is accepting only one parameter, while invoking it has passed two parameters; the first is a function callback and other is just a number.
+
+    When ```fn()``` is called inside ```method```, which was passed the function as a parameter at the global level, ```this.length``` will have access to ```var length = 10``` (declared globally) not ```length = 5``` as defined in ```Object obj```.
+
+    Now, we know that we can access any number of arguments in a JavaScript function using the ```arguments[]``` array.
+    
+    Hence ```arguments[0]()``` is nothing but calling ```fn()```. Inside ```fn``` now, the scope of this function becomes the ```arguments``` array, and logging the ```length``` of ```arguments[]``` will return ```2```.
+
+24. <a id="js-task-24">Consider the following code. What will the output be, and why?</a>
+
+        (function () {
+            try {
+                throw new Error();
+            } catch (x) {
+                var x = 1, y = 2;
+                console.log(x);
+            }
+            console.log(x);
+            console.log(y);
+        })();    
+
+    ---
+    
+        1
+        undefined
+        2
+        
+    ```var``` statements are hoisted (without their value initialization) to the top of the global or function scope it belongs to, even when it’s inside a with or ```catch``` block. However, the error’s identifier is only visible inside the ```catch``` block. It is equivalent to:
+            
+        (function () {
+            var x, y; // outer and hoisted
+            try {
+                throw new Error();
+            } catch (x /* inner */) {
+                x = 1; // inner x, not the outer one
+                y = 2; // there is only one y, which is in the outer scope
+                console.log(x /* inner */);
+            }
+            console.log(x);
+            console.log(y);
+        })();
+    
+25. <a id="js-task-25">What will be the output of this code?</a>
+
+        var x = 21;
+        var girl = function () {
+            console.log(x);
+            var x = 20;
+        };
+        girl ();
+        
+    ---
+    
+    Neither ```21```, nor ```20```, the result is ```undefined```
+    
+    It’s because JavaScript initialization is not hoisted.
+    
+    (Why doesn’t it show the global value of 21? The reason is that when the function is executed, it checks that there’s a local x variable present but doesn’t yet declare it, so it won’t look for global one.)
+
+26. <a id="js-task-26">How do you clone an object?</a>
+
+        var obj = {a: 1 ,b: 2}
+        var objclone = Object.assign({},obj);
+        
+    Now the value of ```objclone``` is ```{a: 1 ,b: 2}``` but points to a different object than ```obj```.
+    
+    Note the potential pitfall, though: ```Object.clone()``` will just do a shallow copy, not a deep copy. This means that nested objects aren’t copied. They still refer to the same nested objects as the original:
+
+        let obj = {
+            a: 1,
+            b: 2,
+            c: {
+                age: 30
+            }
+        };
+        
+        var objclone = Object.assign({},obj);
+        console.log('objclone: ', objclone);
+        
+        obj.c.age = 45;
+        console.log('After Change - obj: ', obj);           // 45 - This also changes
+        console.log('After Change - objclone: ', objclone); // 45
+
+27. <a id="js-task-27">What do the following lines output, and why?</a>
+
+        console.log(1 < 2 < 3);
+        console.log(3 > 2 > 1);
+        
+    ---
+    
+    The first statement returns true which is as expected.
+    
+    The second returns false because of how the engine works regarding operator associativity for ```<``` and ```>```. It compares left to right, so ```3 > 2 > 1``` JavaScript translates to ```true > 1```. true has value ```1```, so it then compares ```1 > 1```, which is false.
+
+28. <a id="js-task-28">How do you add an element at the begining of an array? How do you add one at the end?</a>
+
+        var myArray = ['a', 'b', 'c', 'd'];
+        myArray.push('end');
+        myArray.unshift('start');
+        console.log(myArray); // ["start", "a", "b", "c", "d", "end"]
+        
+    With ES6, one can use the spread operator:
+    
+        myArray = ['start', ...myArray];
+        myArray = [...myArray, 'end'];
+        
+    Or, in short:
+    
+        myArray = ['start', ...myArray, 'end'];
+    
+29. <a id="js-task-29">Imagine you have this code:</a>
+
+    a) Will this result in a crash?
+    
+    It will not crash. The JavaScript engine will make array slots 3 through 9 be “empty slots.”
+
+    b) What will this output?
+    
+    Here, ```a[6]``` will output ```undefined```, but the slot still remains ```empty``` rather than filled with ```undefined```. This may be an important nuance in some cases. For example, when using ```map()```, empty slots will remain empty in ```map()```’s output, but ```undefined``` slots will be remapped using the function passed to it:
+
+        var b = [undefined];
+        b[2] = 1;
+        console.log(b);             // (3) [undefined, empty × 1, 1]
+        console.log(b.map(e => 7)); // (3) [7,         empty × 1, 7]
+
+30. <a id="js-task-30"></a>
+31. <a id="js-task-31"></a>
