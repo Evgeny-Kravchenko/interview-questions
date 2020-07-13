@@ -383,8 +383,23 @@ The repository includes interview questions for a front-end developer
     
         console.log(a[6]);
 
-30. [](#js-task-30)
-31. [](#js-task-31)
+30. [Given a string, reverse each word in the sentence](#js-task-30)
+31. [How would you use a closure to create a private counter?](#js-task-31)
+32. [Write a function that would allow you to do this. ](#js-task-32)
+
+        var addSix = createBase(6);
+        addSix(10); // returns 16
+        addSix(21); // returns 27
+
+33. [FizzBuzz Challenge ](#js-task-33)
+
+    Create a for loop that iterates up to ```100``` while outputting "```fizz```" at multiples of ```3```, "```buzz```" at multiples of ```5``` and "```fizzbuzz```" at multiples of ```3``` and ```5```.
+
+34. [Make this work](#js-task-34)
+
+        duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
+
+35. [Given two strings, return true if they are anagrams of one another ](#js-task-35)
 
 
 ## Answers
@@ -3385,5 +3400,96 @@ The repository includes interview questions for a front-end developer
         console.log(b);             // (3) [undefined, empty × 1, 1]
         console.log(b.map(e => 7)); // (3) [7,         empty × 1, 7]
 
-30. <a id="js-task-30"></a>
-31. <a id="js-task-31"></a>
+30. <a id="js-task-30">Given a string, reverse each word in the sentence</a>
+
+        var string = "Welcome to this Javascript Guide!";
+        
+        // Output becomes !ediuG tpircsavaJ siht ot emocleW
+        var reverseEntireSentence = reverseBySeparator(string, "");
+        
+        // Output becomes emocleW ot siht tpircsavaJ !ediuG
+        var reverseEachWord = reverseBySeparator(reverseEntireSentence, " ");
+        
+        function reverseBySeparator(string, separator) {
+          return string.split(separator).reverse().join(separator);
+        }
+
+31. <a id="js-task-31">How would you use a closure to create a private counter?</a>
+
+        function counter() {
+          var _counter = 0;
+          // return an object with several functions that allow you
+          // to modify the private _counter variable
+          return {
+            add: function(increment) { _counter += increment; },
+            retrieve: function() { return 'The counter is currently at: ' + _counter; }
+          }
+        }
+        
+        // error if we try to access the private variable like below
+        // _counter;
+        
+        // usage of our counter function
+        var c = counter();
+        c.add(5); 
+        c.add(9); 
+        
+        // now we can access the private variable in the following way
+        c.retrieve(); // => The counter is currently at: 14
+
+32. <a id="js-task-32">Write a function that would allow you to do this. </a>
+
+        var addSix = createBase(6);
+        addSix(10); // returns 16
+        addSix(21); // returns 27
+        
+    ---
+    
+        function createBase(base) {
+        	return function(value) {
+          	    return value + base;
+            }
+        }
+        
+        const addSix = createBase(6);
+        console.log(addSix(10));
+        console.log(addSix(20));
+
+33. <a id="js-task-33">FizzBuzz Challenge</a>
+
+    Create a for loop that iterates up to ```100``` while outputting "```fizz```" at multiples of ```3```, "```buzz```" at multiples of ```5``` and "```fizzbuzz```" at multiples of ```3``` and ```5```.
+        
+    ---
+    
+        function fizzbuzz(number) {
+        	for (let i = 1; i <= number; i += 1) {
+                !(i % 3) && !(i % 5) && console.log('fizzbuzz');
+                !(i % 3) && console.log('fizz');
+                !(i % 5) && console.log('buzz');
+          }
+        }
+        
+        fizzbuzz(100);    
+        
+34. <a id="js-task-34">Make this work </a>
+
+        duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
+        
+    ---
+    
+        function duplicate(arr) {
+        	return [...arr, ...arr];
+        }
+        
+        console.log(duplicate([5, 4, 3]));
+
+35. <a id="js-task-35">Given two strings, return true if they are anagrams of one another </a>
+
+        function annagram(str1, str2) {
+        	const str1Sort = [...str1.toLowerCase()].sort().join('');
+          const str2Sort = [...str2.toLowerCase()].sort().join('');
+          console.log(str1Sort, str2Sort);
+          return str1Sort === str2Sort;
+        }
+        
+        console.log(annagram('кот', 'тОк'));
