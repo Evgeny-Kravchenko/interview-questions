@@ -400,7 +400,32 @@ The repository includes interview questions for a front-end developer
         duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 
 35. [Given two strings, return true if they are anagrams of one another ](#js-task-35)
+36. [What will be the output of the following code?](#js-task-36)
 
+        var y = 1;
+        if (function f() {}) {
+          y += typeof f;
+        }
+        console.log(y);
+
+37. [Write a recursive function that performs a binary search ](#js-task-37)
+38. [What will be the output of the following code?](#js-task-38)
+
+        var output = (function(x) {
+          delete x;
+          return x;
+        })(0);
+        
+        console.log(output);
+
+39. [What will be the output of the following code?](#js-task-39)
+
+        var Employee = {
+          company: 'xyz'
+        }
+        var emp1 = Object.create(Employee);
+        delete emp1.company
+        console.log(emp1.company);
 
 ## Answers
 
@@ -3486,10 +3511,93 @@ The repository includes interview questions for a front-end developer
 35. <a id="js-task-35">Given two strings, return true if they are anagrams of one another </a>
 
         function annagram(str1, str2) {
-        	const str1Sort = [...str1.toLowerCase()].sort().join('');
-          const str2Sort = [...str2.toLowerCase()].sort().join('');
-          console.log(str1Sort, str2Sort);
-          return str1Sort === str2Sort;
+            const str1Sort = [...str1.toLowerCase()].sort().join('');
+            const str2Sort = [...str2.toLowerCase()].sort().join('');
+            console.log(str1Sort, str2Sort);
+            return str1Sort === str2Sort;
         }
         
         console.log(annagram('кот', 'тОк'));
+        
+36. <a id="js-task-36">What will be the output of the following code? </a>
+
+        var y = 1;
+        if (function f() {}) {
+          y += typeof f;
+        }
+        console.log(y);
+        
+    ---
+    
+    Above code would give output ```1undefined```. If condition statement evaluate using ```eval``` so ```eval(function f() {})``` which return ```function f() {}``` which is ```true``` so inside if statement code execute. ```typeof f``` return ```undefined``` because if statement code execute at run time, so statement inside if condition evaluated at run time.
+        
+        var k = 1;
+        if (1) {
+          eval(function foo() {});
+          k += typeof foo;
+        }
+        console.log(k);
+        
+    Above code will also output ```1undefined```.
+    
+        var k = 1;
+        if (1) {
+          function foo() {};
+          k += typeof foo;
+        }
+        console.log(k); // output 1function
+        
+37. <a id="js-task-37">Write a recursive function that performs a binary search </a>
+
+        function recursiveBinarySearch(arr, value) {
+        
+          if (arr.length === 1) {
+            return arr[0] === value ? value : 'Array doesn\'t have that value'; 
+          }
+        
+          const startIndex = 0;
+          const endIndex = arr.length - 1;
+          const checkIndex = Math.floor(endIndex / 2);
+        
+          if (value === arr[checkIndex]) {
+            return arr[checkIndex];
+          } else {
+            let newArr = [];
+            if (arr[checkIndex] > value) {
+              newArr = arr.slice(startIndex, checkIndex + 1)
+            } else {
+              newArr = arr.slice(checkIndex + 1, endIndex + 1);
+            }
+            return recursiveBinarySearch(newArr, value);
+          }
+        }
+        
+        console.log(recursiveBinarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 10));
+
+38. <a id="js-task-38">What will be the output of the following code? </a>
+    
+        var output = (function(x) {
+          delete x;
+          return x;
+        })(0);
+        
+        console.log(output);
+        
+    ---
+    
+    ```0``` or ```Error```. It depends on context of invoking javascript code.
+        
+    We can't remove local variables that way. The keyword ```delete``` removes only object property
+
+39. <a id="js-task-39">What will be the output of the following code? </a>
+
+        var Employee = {
+          company: 'xyz'
+        }
+        var emp1 = Object.create(Employee);
+        delete emp1.company
+        console.log(emp1.company);
+        
+    ---
+    
+        xyz
