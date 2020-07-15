@@ -426,6 +426,67 @@ The repository includes interview questions for a front-end developer
         var emp1 = Object.create(Employee);
         delete emp1.company
         console.log(emp1.company);
+        
+### Typescript
+
+1. [What is TypeScript?](#ts-1)
+2. [Why do we need TypeScript?](#ts-2)
+3. [What are the Benefits of using TypeScript?](#ts-3)
+4. [What are the Disadvantages of TypeScript?](#ts-4)
+5. [What are the Components of TypeScript?](#ts-5)
+6. [How to install TypeScript?](#ts-6)
+7. [How do you compile TypeScript files?](#ts-7)
+8. [Can we combine multiple .ts files into a single .js file?](#ts-8)
+9. [What are the different types of TypeScript?](#ts-9)
+10. [List out the built-in data types in TypeScript.](#ts-10)
+11. [What are the object-oriented terms supported by TypeScript?](#ts-11)
+12. [What are Interfaces in TypeScript?](#ts-12)
+13. [What are the access modifiers supported by TypeScript?](#ts-13)
+14. [What is namespace in Typescript and how to declare it?](#ts-14)
+15. [Explain Decorators in TypeScript.](#ts-15)
+16. [What are Mixins?](#ts-16)
+17. [How does TypeScript support optional parameters in function?](#ts-17)
+18. [How can you debug a TypeScript file?](#ts-18)
+19. [What is TypeScript Declare Keyword?](#ts-19)
+20. [What is tsconfig.json file?](#ts-20)
+21. [What are Generics in TypeScript?](#ts-21)
+22. [Explain Enum in TypeScript.](#ts-22)
+23. [Is that TypeScript code valid? Explain why. ](#ts-23)
+
+        class Point {
+            x: number;
+            y: number;
+        }
+        
+        interface Point3d extends Point {
+            z: number;
+        }
+        
+        let point3d: Point3d = {x: 1, y: 2, z: 3};
+
+24. [Explain how and why we could use property decorators in TS?](#ts-24)
+25. [Are strongly-typed functions as parameters possible in TypeScript? ](#ts-25)
+
+    Consider the code:
+    
+        class Foo {
+            save(callback: Function) : void {
+                //Do the save
+                var result : number = 42; //We get a number from the save operation
+                //Can I at compile-time ensure the callback accepts a single parameter of type number somehow?
+                callback(result);
+            }
+        }
+        
+        var foo = new Foo();
+        var callback = (result: string) : void => {
+            alert(result);
+        }
+        foo.save(callback);
+        
+    Can you make the result parameter in save a type-safe function? Rewrite the code to demonstrate.
+
+26. [Does TypeScript supports function overloading?](#ts-26)  
 
 ## Answers
 
@@ -3601,3 +3662,344 @@ The repository includes interview questions for a front-end developer
     ---
     
         xyz
+
+## Typescript
+
+1. <a id="ts-1">What is TypeScript?</a>
+
+    TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. It is pure object-oriented with classes, interfaces and statically typed programming languages like C# or Java. You will need a compiler to compile and generate the code in the JavaScript file. Basically, TypeScript is the ES6 version of JavaScript with some additional features.
+    
+2. <a id="ts-2">Why do we need TypeScript?</a>
+
+    There are different reasons why a JavaScript developer should consider using TypeScript. Some of them include:
+    
+    * ```Using new features of ECMAScript```: TypeScript supports new ECMAScript standards and transpile them to ECMAScript targets of your choice. So, you can use features of ES2015 and beyond.
+    
+    * ```Static Typing```: JavaScript is dynamically typed and does not know what type a variable is until it is actually instantiated at run-time. TypeScript adds type support to JavaScript.
+    
+    * ```Type Inference```. TypeScript makes typing a bit easier and a lot less explicit by the usage of type inference. Even if you don’t explicitly type the types, they are still there to save you from doing something which otherwise would result in a run-time error.
+    
+    * ```Better IDE Support```: The development experience with TypeScript is a great improvement over JavaScript. There is a wide range of IDEs that have excellent support for TypeScript, like Visual Studio & VS code, Atom, Sublime, and IntelliJ/WebStorm.
+    
+    * ```Strict Null Checking```: Errors, like cannot read property ‘x’ of undefined, is common in JavaScript programming. You can avoid most of these kinds of errors since one cannot use a variable that is not known to the TypeScript compiler.
+    
+    * ```Interoperability```: TypeScript is closely related to JavaScript so it has great interoperability capabilities, but some extra work is required to work with JavaScript libraries in TypeScript.
+    
+3. <a id="ts-3">What are the Benefits of using TypeScript?</a>
+
+    The Benefits of using TypeScript are:
+    
+    * TypeScript is fast, simple, easy to learn and runs on any browser or JavaScript engine.
+    
+    * It is similar to JavaScript and uses the same syntax and semantics.
+    
+    * This helps backend developers write front-end code faster.
+   
+    * You can call the TypeScript code from an existing JavaScript code. Also, it works with existing JavaScript frameworks and libraries without any issues.
+    
+    * The Definition file, with .d.ts extension, provides support for existing JavaScript libraries like Jquery, D3.js, etc.
+    
+    * It includes features from ES6 and ES7 that can run in ES5-level JavaScript engines like Node.js.
+
+4. <a id="ts-4">What are the Disadvantages of TypeScript?</a>
+
+    TypeScript has the following disadvantages:
+    
+    * TypeScript takes a long time to compile the code.
+    
+    * It does not support abstract classes.
+    
+    * If we run the TypeScript application in the browser, a compilation step is required to transform TypeScript into JavaScript.
+    
+    * To use any third party library, the definition file is a must.
+
+5. <a id="ts-5">What are the Components of TypeScript?</a>
+
+    There are three different types of components in TypeScript which includes:
+    
+    * ```Language``` − It comprises of the syntax, keywords, and type annotations.
+    
+    * ```The TypeScript Compiler``` − This compiler (tsc) converts the instructions written in TypeScript to its JavaScript equivalent.
+    
+    * ```The TypeScript Language Service``` − The Language Service exposes an additional layer around the core compiler pipeline, editor-like applications. The language service supports the common set of typical editor operations.
+
+6. <a id="ts-6">How to install TypeScript?</a>
+
+    There are two main ways to install TypeScript tools such as:
+    
+    *  Via npm (Node.js Package Manager) command-line tool
+    
+    * By installing TypeScript via Visual Studio.
+
+7. <a id="ts-7">How do you compile TypeScript files?</a>
+
+    The extension for any TypeScript file is .ts. And any JavaScript file is a TypeScript file as it is a superset of JavaScript. So, once you change the extension of “.js” to “.ts”, your TypeScript file is ready. To compile any .ts file into .js use the following command:
+    
+        tsc <TypeScript File Name>
+        
+    For example, to compile “edureka.ts”
+    
+        tsc edureka.ts
+        
+    And the result would be edureka.js
+
+8. <a id="ts-8">Can we combine multiple .ts files into a single .js file?</a>
+
+    Yes, we can combine multiple files. While compiling, we need to add ```–outFILE [OutputJSFileName]``` option.
+    
+        tsc --outFile comman.js file1.ts file2.ts file3.ts
+        
+    This will compile all 3 “.ts” file and output into a single “comman.js” file.
+    
+        tsc --outFile file1.ts file2.ts file3.ts
+        
+    If you don’t provide an output file name, file2.ts and file3.ts will be compiled and the output will be placed in file1.ts. So now your file1.ts contains JavaScript code.
+
+9. <a id="ts-9">What are the different types of TypeScript?</a>
+
+    The Type System represents the different types of values supported by the language. It checks the validity of the supplied values before they are stored or manipulated by the program.
+    
+    It can be classified into two types such as:
+    
+    * ```Built-in```: This includes number, string, boolean, void, null and undefined.
+    
+    * ```User-defined```: It includes Enumerations (enums), classes, interfaces, arrays, and tuple.
+
+10. <a id="ts-10">List out the built-in data types in TypeScript.</a>
+
+    In TypeScript, the built-in data types are also known as primitive data types and the list include:
+    
+    * ```Number```. This represents number type values. The numbers are stored as floating-point values in TypeScript.
+    
+    * ```String```: A string represents a sequence of characters stored as Unicode UTF-16 code.
+    
+    * ```Boolean```: This represents a logical value. When we use the Boolean type, we get the output only in true or false.
+    
+    * ```Null```: Null represents a variable whose value is undefined. It is not possible to directly reference the null type value itself.
+    
+    * ```Undefined```: The Undefined type denotes all uninitialized variables.
+    
+    * ```Void```: A void is the return type of the functions that do not return any type of value.
+
+11. <a id="ts-11">What are the object-oriented terms supported by TypeScript?</a>
+
+    TypeScript supports the following object-oriented terms:
+    
+    * Modules
+    
+    * Classes
+    
+    * Interfaces
+    
+    * Inheritance
+    
+    * Data types
+    
+    * Member functions
+
+12. <a id="ts-12">What are Interfaces in TypeScript?</a>
+
+    The interface is a structure that defines the contract in your application. It defines the syntax for classes to follow. It contains only the declaration of the members and it is the responsibility of the deriving class to define the members. The TypeScript compiler uses interface for type-checking and checks whether the object has a specific structure or not.
+    
+        interface interface_name {
+            // variables' declaration
+            // methods' declaration
+        }
+
+13. <a id="ts-13">What are the access modifiers supported by TypeScript?</a>
+
+    TypeScript supports access modifiers ```public```, ```private``` and ```protected``` which determine the accessibility of a class member as given below:
+    
+    * ```Public``` – All the members of the class, its child classes, and the instance of the class can access.
+    
+    * ```Protected``` – All the members of the class and its child classes can access them. But the instance of the class can not access.
+    
+    * ```Private``` – Only the members of the class can access them.
+    
+    If an access modifier is not specified it is implicitly ```public``` as that matches the convenient nature of JavaScript.
+
+14. <a id="ts-14">What is namespace in Typescript and how to declare it?</a>
+
+    Namespace groups functionalities logically. These maintain the legacy code of typescript internally. It encapsulates the features and objects that share certain relationships. A namespace is also known as internal modules. A namespace can also include interfaces, classes, functions, and variables to support a group of related functionalities.
+    
+        namespace <namespace_name> {
+            export interface I1 { }
+            export class c1{ }
+        }
+
+15. <a id="ts-15">Explain Decorators in TypeScript.</a>
+
+    A Decorator is a special kind of declaration that can be applied to classes, methods, accessor, property, or parameter. Decorators are functions that are prefixed @expression symbol, where expression must evaluate to a function that will be called at runtime with information about the decorated declaration.
+    
+    TypeScript Decorators serves the purpose of adding both annotations and metadata to the existing code in a declarative way. To enable experimental support for decorators,you need to enable the experimentalDecorators compiler option either on the command line or in our tsconfig.json:
+    
+        tsc --target ES5 --experimentalDecorators
+        
+    tsconfig.json
+    
+        {
+            "compilerOptions": {
+                "target": "ES5",
+                "experimentalDecorators": true
+            }
+        }
+
+16. <a id="ts-16">What are Mixins?</a>
+
+    In Javascript, Mixins are a way of building up classes from reusable components and then build them by combining simpler partial classes.
+    
+    The idea is simple, instead of a class A extending class B to get its functionality, function B takes class A and returns a new class with this added functionality. Here, function B is a mixin.
+
+17. <a id="ts-17">How does TypeScript support optional parameters in function?</a>
+
+    Unlike JavaScript, the TypeScript compiler throws an error if you try to invoke a function without providing the exact number and types of parameters as declared in its function signature. To overcome this problem, you can use optional parameters by using a question mark sign (‘?’). It indicates that the parameters which may or may not receive a value can be appended with a ‘?’ to mark them optional.
+    
+        function Demo(arg1: number, arg2? :number) {
+        }
+        
+    In the above example, arg1 is always required, and arg2 is an optional parameter.
+
+18. <a id="ts-18">How can you debug a TypeScript file?</a>
+
+    To debug any TypeScript file, you need a .js source map file. So, you have to compile the .ts file with the –sourcemap flag to generate a source map file.
+    
+        tsc -sourcemap file1.ts
+        
+    This will create file1.js and file1.js.map. And the last line of file1.js would be a reference of the source map file.
+    
+19. <a id="ts-19">What is TypeScript Declare Keyword?</a>
+
+    JavaScript libraries or frameworks don’t have TypeScript declaration files. But if you want to use them in the TypeScript file without any compilation error, you have to use the declare keyword. The declare keyword is used for ambient declarations and methods where you want to define a variable that may exist elsewhere.
+    
+    If you want to use the library in our TypeScript code, you can use the following code:
+    
+        declare var myLibrary;
+        
+    TypeScript runtime will assign the myLibrary variable as any type.
+
+20. <a id="ts-20">What is tsconfig.json file?</a>
+
+    The tsconfig.json file is a file which is in JSON format. In the tsconfig.json file, you can specify different options to tell the compiler how to compile the current project. The presence of a tsconfig.json file in a directory indicates that the directory is the root of a TypeScript project.
+    
+    Example of a sample tsconfig.json file:
+    
+        {
+            "compilerOptions": {
+                "declaration": true,
+                "emitDecoratorMetadata": false,
+                "experimentalDecorators": false,
+                "module": "none",
+                "moduleResolution": "node"
+                "removeComments": true,
+                "sourceMap": true
+            },
+                "files": [
+                "main.ts",
+                "othermodule.ts"
+            ]
+        }
+    
+21. <a id="ts-21">What are Generics in TypeScript?
+
+        TypeScript Generics is a tool that provides a way of creating reusable components. It is able to create components that can work with a variety of data types rather than a single data type. Also, it provides type safety without compromising the performance, or productivity. Generics allow us to create generic classes, generic functions, generic methods, and generic interfaces.
+            
+        In generics, a type parameter is written between the open (<) and close (>) brackets which makes it strongly typed collections. It uses a special kind of type variable <T> that denotes types.
+    
+            function identity<T>(arg: T): T {
+                return arg;
+            }
+            let output1 = identity<string>("edureka");
+            let output2 = identity<number>( 117 );
+            console.log(output1);
+            console.log(output2);
+
+22. <a id="ts-22">Explain Enum in TypeScript.</a>
+
+    Enums or enumerations are a TypeScipt data type that allows us to define a set of named constants. Using enums make it easier to document intent, or create a set of distinct cases. It is a collection of related values that can be numeric or string values.
+    
+        enum Gender {
+            Male,
+            Female
+            Other
+        }
+        console.log(Gender.Male); // Output: 0
+        //We can also access an enum value by it's number value.
+        console.log(Gender[1]); // Output: Female
+
+23. <a id="ts-23">Is that TypeScript code valid? Explain why.</a>
+
+        class Point {
+            x: number;
+            y: number;
+        }
+                
+        interface Point3d extends Point {
+            z: number;
+        }
+                
+        let point3d: Point3d = {x: 1, y: 2, z: 3};
+        
+    ---
+    
+    Yes, the code is valid. A class declaration creates two things: a type representing instances of the class and a constructor function. Because classes create types, you can use them in the same places you would be able to use interfaces.
+
+24. <a id="ts-24">Explain how and why we could use property decorators in TS?</a>
+
+    Decorators can be used to modify the behavior of a class or become even more powerful when integrated into a framework. For instance, if your framework has methods with restricted access requirements (just for admin), it would be easy to write an @admin method decorator to deny access to non-administrative users, or an @owner decorator to only allow the owner of an object the ability to modify it.
+    
+        class CRUD {
+            get() { }
+            post() { }
+        
+            @admin
+            delete() { }
+        
+            @owner
+            put() { }
+        }
+
+25. <a id="ts-25">Are strongly-typed functions as parameters possible in TypeScript?</a>
+    
+    Consider the code:
+        
+        class Foo {
+            save(callback: Function) : void {
+                //Do the save
+                var result : number = 42; //We get a number from the save operation
+                //Can I at compile-time ensure the callback accepts a single parameter of type number somehow?
+                callback(result);
+            }
+        }
+        
+        var foo = new Foo();
+        var callback = (result: string) : void => {
+            alert(result);
+        }
+        foo.save(callback);
+            
+    Can you make the result parameter in save a type-safe function? Rewrite the code to demonstrate.
+
+    ---
+    
+    In TypeScript you can declare your callback type like:
+    
+        type NumberCallback = (n: number) => any;
+        
+        class Foo {
+            // Equivalent
+            save(callback: NumberCallback): void {
+                console.log(1)
+                callback(42);
+            }
+        }
+        
+        var numCallback: NumberCallback = (result: number) : void => {
+            console.log("numCallback: ", result.toString());
+        }
+        
+        var foo = new Foo();
+        foo.save(numCallback)
+    
+26. <a id="ts-26">Does TypeScript supports function overloading?</a>
+
+    Yes, TypeScript does support function overloading but the implementation is a bit different if we compare it to OO languages. We are creating just one function and a number of declarations so that TypeScript doesn't give compile errors. When this code is compiled to JavaScript, the concrete function alone will be visible. As a JavaScript function can be called by passing multiple arguments, it just works.
