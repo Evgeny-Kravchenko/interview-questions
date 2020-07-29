@@ -486,7 +486,17 @@ The repository includes interview questions for a front-end developer
         
     Can you make the result parameter in save a type-safe function? Rewrite the code to demonstrate.
 
-26. [Does TypeScript supports function overloading?](#ts-26)  
+26. [Does TypeScript supports function overloading?](#ts-26)
+
+### Angular
+
+1. [What is Angular?](#ang-1)
+2. [Define the ng-content Directive?](#ang-2)
+3. [Please explain the various features of Angular.](#ang-3)
+4. [Demonstrate navigating between different routes in an Angular application.](#ang-4)
+5. [Could you explain services in Angular?](#ang-5)
+6. [What is string interpolation in Angular?](#ang-6)
+7. [Explain Angular Authentication and Authorization.](#ang-7)
 
 ## Answers
 
@@ -4003,3 +4013,121 @@ The repository includes interview questions for a front-end developer
 26. <a id="ts-26">Does TypeScript supports function overloading?</a>
 
     Yes, TypeScript does support function overloading but the implementation is a bit different if we compare it to OO languages. We are creating just one function and a number of declarations so that TypeScript doesn't give compile errors. When this code is compiled to JavaScript, the concrete function alone will be visible. As a JavaScript function can be called by passing multiple arguments, it just works.
+
+### Angular
+
+1. <a id="ang-1">What is Angular?</a>
+
+    Angular is a TypeScript-based open-source web application framework, developed and maintained by Google. It offers an easy and powerful way of building front end web-based applications.
+    
+    Angular integrates a range of features like declarative templates, dependency injection, end-to-end tooling, etc. that facilitates web application development.
+
+2. <a id="ang-2">Define the ng-content Directive?</a>
+
+    Conventional HTML elements have some content between the tags. For instance:
+    
+        <p>Put your paragraph here</p>
+        
+    Now consider the following example of having custom text between angular tags:
+    
+        <app-work>This won’t work like HTML until you use ng-content Directive</app-work>
+        
+    In order to make it work just like the HTML example mentioned above, we need to use the ng-content Directive. Moreover, it is helpful in building reusable components.
+
+3. <a id="ang-3">Please explain the various features of Angular.</a>
+
+    There are several features of Angular that makes it an ideal front end JavaScript framework. Most important of them are described as follows:
+    
+    * ```Accessibility Applications```
+    
+    Angular allows creating accessible applications using ARIA-enabled components, built-in a11y test infrastructure, and developer guides.
+    
+    * ```Angular CLI```
+    
+    Angular provides support for command-line interface tools. These tools can be used for adding components, testing, instant deploying, etc.
+    
+    * ```Animation Support```
+    
+    Angular’s intuitive API allows the creation of high-performance, complex animation timelines with very little code.
+    
+    * ```Cross-Platform App Development```
+    
+    Angular can be used for building an efficient and powerful desktop, native, and progressive web apps. Angular provides support for building native mobile applications using Cordova, Ionic, or NativeScript.
+    
+    Angular allows creating high performance, offline, and zero-step installation progressive web apps using modern web platform capabilities. The popular JS framework can also be used for building desktop apps for Linux, macOS, and Windows.
+    
+    * ```Code Generation```
+    
+    Angular is able to convert templates into highly-optimized code for modern JavaScript virtual machines.
+    
+    * ```Code Splitting```
+    
+    With the new Component Router, Angular apps load quickly. The Component Router offers automatic code-splitting so that only the code required to render the view that is requested by a user is loaded.
+    
+    * ```Synergy with Popular Code Editors and IDEs```
+    
+    Angular offers code completion, instant errors, etc. with popular source code editors and IDEs.
+    
+    * ```Templates```
+    
+    Allows creating UI views with a simple and powerful template syntax.
+    
+    * ```Testing```
+    
+    Angular lets you carry out frequent unit tests using Karma. The Protractor allows running faster scenario tests in a stable way.
+
+4. <a id="ang-4">Demonstrate navigating between different routes in an Angular application.</a>
+
+    Following code demonstrates how to navigate between different routes in an Angular app dubbed “Some Search App”:
+    
+        import from "@angular/router";
+        .
+        .
+        .
+        @Component({
+          selector: 'app-header',
+          template: `
+        <nav class="navbar navbar-light bg-faded">
+          <a class="navbar-brand" (click)="goHome()">Some Search App</a> 
+          <ul class="nav navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" (click)="goHome()">Home</a> 
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" (click)="goSearch()">Search</a> 
+            </li>
+          </ul>
+        </nav>
+         `
+        })
+        class HeaderComponent {
+          constructor(private router: Router) {} 
+          goHome() {
+            this.router.navigate(['']); 
+          }
+          goSearch() {
+            this.router.navigate(['search']); 
+          }
+        }
+        
+5. <a id="ang-5">Could you explain services in Angular?</a>
+
+    Singleton objects in Angular that get instantiated only once during the lifetime of an application are called services. An Angular service contains methods that maintain the data throughout the life of an application.
+    
+    The primary intent of an Angular service is to organize as well as share business logic, models, or data and functions with various components of an Angular application.
+    
+    The functions offered by an Angular service can be invoked from any Angular component, such as a controller or directive.
+
+6. <a id="ang-6">What is string interpolation in Angular?</a>
+    
+    Also referred to as moustache syntax, string interpolation in Angular refers to a special type of syntax that makes use of template expressions in order to display the component data. These template expressions are enclosed within double curly braces i.e. {{ }}.
+    
+    The JavaScript expressions that are to be executed by Angular are added within the curly braces and the corresponding output is embedded into the HTML code. Typically, these expressions are updated and registered like watches as a part of the digest cycle.
+
+7. <a id="ang-7">Explain Angular Authentication and Authorization.</a>
+
+    The user login credentials are passed to an authenticate API, which is present on the server. Post server-side validation of the credentials, a JWT (JSON Web Token) is returned. The JWT has information or attributes regarding the current user. The user is then identified with the given JWT. This is called authentication.
+    
+    Post logging-in successfully, different users have a different level of access. While some may access everything, access for others might be restricted to only some resources. The level of access is authorization.
+    
+    
