@@ -497,6 +497,15 @@ The repository includes interview questions for a front-end developer
 5. [Could you explain services in Angular?](#ang-5)
 6. [What is string interpolation in Angular?](#ang-6)
 7. [Explain Angular Authentication and Authorization.](#ang-7)
+8. [Can you explain the concept of scope hierarchy in Angular?](#ang-8)
+9. [How to generate a class in Angular 7 using CLI?](#ang-9)
+10. [Could you explain the concept of templates in Angular?](#ang-10)
+11. [What are directives in Angular?](#ang-11)
+12. [What are the building blocks of Angular?](#ang-12)
+13. [Could you explain the difference between Angular expressions and JavaScript expressions?](#ang-13)
+14. [What is Angular Material?](#ang-14)
+15. [What is AOT (Ahead-Of-Time) Compilation?](#ang-15)
+
 
 ## Answers
 
@@ -4130,4 +4139,83 @@ The repository includes interview questions for a front-end developer
     
     Post logging-in successfully, different users have a different level of access. While some may access everything, access for others might be restricted to only some resources. The level of access is authorization.
     
+8. <a id="ang-8">Can you explain the concept of scope hierarchy in Angular?</a>
+
+    Angular organizes the $scope objects into a hierarchy that is typically used by views. This is known as the scope hierarchy in Angular. It has a root scope that can further contain one or several scopes called child scopes.
     
+    In a scope hierarchy, each view has its own $scope. Hence, the variables set by a view’s view controller will remain hidden to other view controllers.
+    
+9. <a id="ang-9">How to generate a class in Angular 7 using CLI?</a>
+
+        ng generate class Dummy [options]
+        
+    This will generate a class named Dummy.
+
+10. <a id="ang-10">Could you explain the concept of templates in Angular?</a>
+
+    Written with HTML, templates in Angular contains Angular-specific attributes and elements. Combined with information coming from the controller and model, templates are then further rendered to cater the user with the dynamic view.
+    
+11. <a id="ang-11">What are directives in Angular?</a>
+
+    Directives are one of the core features of Angular. They allow an Angular developer to write new, application-specific HTML syntax. In actual, directives are functions that are executed by the Angular compiler when the same finds them in the DOM. Directives are of three types:
+    
+    * ```Attribute Directives```
+    * ```Component Directives```
+    * ```Structural Directives```
+
+12. <a id="ang-12">What are the building blocks of Angular?</a>
+
+    There are essentially 9 building blocks of an Angular application. These are:
+    
+    * ```Components```
+    
+    A component controls one or more views. Each view is some specific section of the screen. Every Angular application has at least one component, known as the root component. It is bootstrapped inside the main module, known as the root module. A component contains application logic defined inside a class. This class is responsible for interacting with the view via an API of properties and methods.
+    
+    * ```Data Binding```
+    
+    The mechanism by which parts of a template coordinates with parts of a component is known as data binding. In order to let Angular know how to connect both sides (template and its component), the binding markup is added to the template HTML.
+    
+    * ```Dependency Injection (DI)```
+    
+    Angular makes use of DI to provide required dependencies to new components. Typically, dependencies required by a component are services. A component’s constructor parameters tell Angular about the services that a component requires. So, a dependency injection offers a way to supply fully-formed dependencies required by a new instance of a class.
+    
+    * ```Directives ```
+    
+    The templates used by Angular are dynamic in nature. Directives are responsible for instructing Angular about how to transform the DOM when rendering a template. Actually, components are directives with a template. Other types of directives are attribute and structural directives.
+    
+    * ```Meta-data```
+    
+    In order to let Angular know how to process a class, metadata is attached to the class. For doing so decorators are used.
+    
+    * ```Modules```
+    
+    Also known as NgModules, a module is an organized block of code with a specific set of capabilities. It has a specific application domain or a workflow. Like components, any Angular application has at least one module. This is known as the root module. Typically, an Angular application has several modules.
+    
+    * ```Routing ```
+    
+    An Angular router is responsible for interpreting a browser URL as an instruction to navigate to a client-generated view. The router is bound to links on a page to tell Angular to navigate the application view when a user clicks on it.
+    
+    * ```Services ```
+    
+    A very broad category, a service can be anything ranging from a value and function to a feature that is required by an Angular app. Technically, a service is a class with a well-defined purpose.
+    
+    * ```Template ```
+    
+    Each component’s view is associated with its companion template. A template in Angular is a form of HTML tags that lets Angular know that how it is meant to render the component.
+
+13. <a id="ang-13">Could you explain the difference between Angular expressions and JavaScript expressions?</a>
+
+    * Angular expressions support filters while JavaScript expressions do not
+    * It is possible to write Angular expressions inside the HTML tags. JavaScript expressions, contrarily, can’t be written inside the HTML tags
+    * While JavaScript expressions support conditionals, exceptions, and loops, Angular expressions don’t
+
+14. <a id="ang-14">What is Angular Material?</a>
+
+    It is a UI component library. Angular Material helps in creating attractive, consistent, and fully functional web pages as well as web applications. It does so while following modern web design principles, including browser portability and graceful degradation.
+
+15. <a id="ang-15">What is AOT (Ahead-Of-Time) Compilation?</a>
+
+    Each Angular app gets compiled internally. The Angular compiler takes in the JS code, compiles it and then produces some JS code. This happens only once per occasion per user. It is known as AOT (Ahead-Of-Time) compilation.
+
+16. <a id="ang-16"></a>
+
