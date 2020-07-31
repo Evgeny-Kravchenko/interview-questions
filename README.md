@@ -505,6 +505,11 @@ The repository includes interview questions for a front-end developer
 13. [Could you explain the difference between Angular expressions and JavaScript expressions?](#ang-13)
 14. [What is Angular Material?](#ang-14)
 15. [What is AOT (Ahead-Of-Time) Compilation?](#ang-15)
+16. [What is Data Binding? How many ways it can be done?](#ang-16)
+17. [Please explain the digest cycle in Angular?](#ang-17)
+18. [What is ngOnInit()? How to define it?](#ang-18)
+19. [What is the code for creating a decorator?](#ang-19)
+20. [What is ViewEncapsulation and how many ways are there do to do it in Angular?](#ang-20)
 
 
 ## Answers
@@ -4215,7 +4220,57 @@ The repository includes interview questions for a front-end developer
 
 15. <a id="ang-15">What is AOT (Ahead-Of-Time) Compilation?</a>
 
-    Each Angular app gets compiled internally. The Angular compiler takes in the JS code, compiles it and then produces some JS code. This happens only once per occasion per user. It is known as AOT (Ahead-Of-Time) compilation.
+    An angular application consists of components and templates which a browser cannot understand. Therefore, every Angular application needs to be compiled before running inside the browser. The Angular compiler takes in the JS code, compiles it, and then produces some JS code. It is known as AOT compilation and happens only once per occasion per user. There are two kinds of compilation that Angular provides:
+    
+    * ```JIT(Just-in-Time) compilation:``` The application compiles inside the browser during runtime
+    * ```AOT(Ahead-of-Time) compilation:``` The application compiles during the build time.
+    
+    Advantages of AOT compilation:
+    
+    * ```Fast Rendering:``` The browser loads the executable code and renders it immediately as the application is compiled before running inside the browser.
+    
+    * ```Fewer Ajax Requests:``` The compiler sends the external HTML and CSS files along with the application, eliminating AJAX requests for those source files.
+    
+    * ```Minimizing Errors: ``` Easy to detect and handle errors during the building phase.
+    
+    * ```Better Security:```  Before an application runs inside the browser, the AOT compiler adds HTML and templates into the JS files, so there are no extra HTML files to be read, thus providing better security for the application.
+    
+16. <a id="ang-16">What is Data Binding? How many ways it can be done?</a>
 
-16. <a id="ang-16"></a>
+    In order to connect application data with the DOM (Data Object Model), data binding is used. It happens between the template (HTML) and component (TypeScript). There are 3 ways to achieve data binding:
+    
+    * ```Event Binding```- Enables the application to respond to user input in the target environment.
+    
+    * ```Property Binding``` - Enables interpolation of values computed from application data into the HTML.
+    
+    * ```Two-way Binding``` - Two-way Binding – Changes made in the application state gets automatically reflected in the view and vice-versa. The ngModel directive is used for achieving this type of data binding.
 
+17. <a id="ang-17">Please explain the digest cycle in Angular?</a>
+
+    The process of monitoring the watchlist in order to track changes in the value of the watch variable is termed the digest cycle in Angular. The previous and present versions of the scope model values are compared in each digest cycle.
+    
+    Although the digest cycle process gets triggered implicitly, it is possible to start it manually by using the $apply() function.
+
+18. <a id="ang-18">What is ngOnInit()? How to define it?</a>
+
+    ```ngOnInit()``` is a lifecycle hook that is called after Angular has finished initializing all data-bound properties of a directive. It is defined as:
+    
+        Interface OnInit {
+         ngOnInit() : void
+         }
+
+19. <a id="ang-19">What is the code for creating a decorator?</a>
+
+    We create a decorator called Dummy:
+    
+         function Dummy(target) {
+            dummy.log('This decorator is Dummy', target);
+         }
+
+20. <a id="ang-19">What is ViewEncapsulation and how many ways are there do to do it in Angular?</a>
+
+    To put simply, ViewEncapsulation determines whether the styles defined in a particular component will affect the entire application or not. Angular supports 3 types of ViewEncapsulation:
+    
+    * ```Emulated``` – Styles used in other HTML spread to the component
+    * ```Native``` – Styles used in other HTML doesn’t spread to the component
+    * ```None``` – Styles defined in a component are visible to all components of the application
